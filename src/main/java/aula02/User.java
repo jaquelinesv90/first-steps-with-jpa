@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +22,8 @@ public class User {
 		
 		private String password;
 
-		
+		@ManyToOne
+		private Control control;
 		
 		public Integer getId() {
 			return id;
@@ -53,5 +55,14 @@ public class User {
 
 		public void setPassword(String password) {
 			this.password = password;
+		}
+
+		public Control getControl() {
+			return control;
+		}
+
+		public void setControl(Control control) {
+			this.control = control;
 		}	
+		
 }

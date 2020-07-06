@@ -1,4 +1,4 @@
-package aula02;
+package lesson02;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

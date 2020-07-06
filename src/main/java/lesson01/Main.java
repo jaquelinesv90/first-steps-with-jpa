@@ -1,4 +1,4 @@
-package aula01;
+package lesson01;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

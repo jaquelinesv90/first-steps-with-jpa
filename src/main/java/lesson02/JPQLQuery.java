@@ -1,4 +1,4 @@
-package aula02;
+package lesson02;
 
 import java.util.List;
 

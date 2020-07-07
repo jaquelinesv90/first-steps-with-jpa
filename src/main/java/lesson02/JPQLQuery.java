@@ -7,11 +7,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import lesson02.model.User;
+
 public class JPQLQuery {
 	
 	public static void main(String[] args) {
 		EntityManagerFactory entityManagerFactory = Persistence
-				.createEntityManagerFactory("Clientes-PU");
+				.createEntityManagerFactory("Usuarios-PU");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		firstSelect(entityManager);

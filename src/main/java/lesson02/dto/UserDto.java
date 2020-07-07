@@ -1,4 +1,4 @@
-package lesson02;
+package lesson02.dto;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -1,4 +1,6 @@
-package lesson02;
+package lesson02.model;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +23,17 @@ public class User {
 		private String login;
 		
 		private String password;
+		
+		private LocalDateTime lastAcess;
 
+		/**
 		@ManyToOne
 		private Control control;
+		
+		//		@OneToOne(mappedBy = "user" )
+		//	private Configuration configuration;
+		**/
+		
 		
 		public Integer getId() {
 			return id;
@@ -56,13 +66,23 @@ public class User {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-
+/**
 		public Control getControl() {
 			return control;
 		}
 
 		public void setControl(Control control) {
 			this.control = control;
-		}	
+		}
+**/
+		public LocalDateTime getLastAcess() {
+			return lastAcess;
+		}
+
+		public void setLastAcess(LocalDateTime lastAcess) {
+			this.lastAcess = lastAcess;
+		}
+		
+		
 		
 }

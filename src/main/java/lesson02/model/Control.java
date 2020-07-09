@@ -15,10 +15,10 @@ public class Control {
 	private Integer id;
 	
 	private String name;
-/**	
+
 	@OneToMany(mappedBy = "control")
 	private List<User> userList;
-**/
+
 	public Integer getId() {
 		return id;
 	}
@@ -34,7 +34,7 @@ public class Control {
 	public void setName(String name) {
 		this.name = name;
 	}
-/**
+
 	public List<User> getUserList() {
 		return userList;
 	}
@@ -42,5 +42,5 @@ public class Control {
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
 	}
-	**/
+	
 }

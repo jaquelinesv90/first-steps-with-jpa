@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import lesson02.model.Control;
 import lesson02.model.User;
 
 public class JPQLQuery {
@@ -20,20 +21,16 @@ public class JPQLQuery {
 		//firstSelect(entityManager);
 		choosingReturn(entityManager);
 		
-		
-		
 		entityManager.close();
 		entityManagerFactory.close();
 	}
 	
 	public static void choosingReturn(EntityManager entityManager) {
-		String jpql = "select u from User u";
-		TypedQuery<User> typedQuery = entityManager.createQuery(jpql, User.class);
-		List<User> list = typedQuery.getResultList();
-		
-		for(User u : list) {
-			System.out.println(u.getId()+ "," + u.getName());
-		}
+		String jpql = "select u.control from User u where u.id =1";
+		TypedQuery<Control> typedQuery = entityManager.createQuery(jpql, Control.class);
+		Control control = typedQuery.getSingleResult();
+	
+		System.out.println(control.getId()+ "," + control.getName());
 	}
 	
 

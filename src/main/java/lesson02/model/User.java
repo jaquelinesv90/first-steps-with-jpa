@@ -25,15 +25,13 @@ public class User {
 		private String password;
 		
 		private LocalDateTime lastAcess;
-
-		/**
+		
 		@ManyToOne
 		private Control control;
-		
+		/**
 		//		@OneToOne(mappedBy = "user" )
 		//	private Configuration configuration;
 		**/
-		
 		
 		public Integer getId() {
 			return id;
@@ -66,7 +64,7 @@ public class User {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-/**
+
 		public Control getControl() {
 			return control;
 		}
@@ -74,7 +72,7 @@ public class User {
 		public void setControl(Control control) {
 			this.control = control;
 		}
-**/
+
 		public LocalDateTime getLastAcess() {
 			return lastAcess;
 		}

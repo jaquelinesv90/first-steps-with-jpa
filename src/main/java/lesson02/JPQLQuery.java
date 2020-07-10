@@ -26,11 +26,20 @@ public class JPQLQuery {
 	}
 	
 	public static void choosingReturn(EntityManager entityManager) {
+		
 		String jpql = "select u.control from User u where u.id =1";
 		TypedQuery<Control> typedQuery = entityManager.createQuery(jpql, Control.class);
 		Control control = typedQuery.getSingleResult();
-	
 		System.out.println(control.getId()+ "," + control.getName());
+		
+		String jpqlNames = "select u.name from User u";
+		TypedQuery<String> typedQueryName = entityManager.createQuery(jpqlNames, String.class);
+		List<String> listNames = typedQueryName.getResultList();
+		//list.forEach(u -> System.out.println(u.getId() + ","+u.getName()));
+		for(String u : listNames) {
+			System.out.println(u);
+		}
+		
 	}
 	
 

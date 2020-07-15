@@ -4,6 +4,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//classe criada para na hora da consulta retornar apenas alguns campos do usuario
+// não precisa de um construtor padrão, como nas demais entidades
+
 public class UserDto {
 	
 	//estratégia de geração de chave primária e deixe que o bd gere o valor
@@ -13,6 +16,7 @@ public class UserDto {
 			
 			private String name;
 			
+		
 			public UserDto(Integer id,String name) {
 				this.id = id;
 				this.name = name;

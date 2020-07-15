@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import lesson02.dto.UserDto;
 import lesson02.model.Control;
 import lesson02.model.User;
 
@@ -19,11 +20,53 @@ public class JPQLQuery {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		//firstSelect(entityManager);
-		choosingReturn(entityManager);
+		//choosingReturn(entityManager);
+		//makingProjections(entityManager);
+		passParameter(entityManager);
 		
 		entityManager.close();
 		entityManagerFactory.close();
 	}
+	
+	//passagem de parametros
+	public static void passParameter(EntityManager entityManager) {
+		String jpql = "select u from User u where u.id = :idUser";
+		TypedQuery<User> typedQuery = entityManager.createQuery(jpql, User.class);
+		typedQuery.setParameter("idUser", 1);
+		User user = typedQuery.getSingleResult();
+		System.out.println(user.getId() + ","+ user.getName());
+		
+		
+		String jpqlString = "select u from User u where u.name = :nameUser";
+		TypedQuery<User> typedQueryString = entityManager.createQuery(jpqlString, User.class);
+		typedQueryString.setParameter("nameUser", "celo");
+		User userResult = typedQueryString.getSingleResult();
+		System.out.println("resultado :"+userResult.getId() + ","+ userResult.getName());
+	}
+	
+	
+	//selecionando apenas alguns dados da tabela
+	//retorna uma lista de array de objetos
+	public static void makingProjections(EntityManager entityManager) {
+		String jpqlArray = "select id,name from User";
+		TypedQuery<Object[]> typedQueryArray = entityManager.createQuery(jpqlArray, Object[].class);
+		List<Object[]> listArray = typedQueryArray.getResultList();
+		for(Object u : listArray) {
+			System.out.println("%s,%s,%s"+u.getClass());
+		}
+		
+		
+		String jpqlDto = "select new lesson02.dto.UserDto(id,name) from User";
+		TypedQuery<UserDto> typedQueryDto = entityManager.createQuery(jpqlDto, UserDto.class);
+		List<UserDto> listDto = typedQueryDto.getResultList();
+		
+		for(UserDto u : listDto) {
+			System.out.println(u.getId()+","+u.getName());
+		}
+		
+		
+	}
+	
 	
 	public static void choosingReturn(EntityManager entityManager) {
 		

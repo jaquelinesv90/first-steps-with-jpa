@@ -1,11 +1,11 @@
-package lesson02.model;
+package lesson03.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Configuration {
 	
 		@Id

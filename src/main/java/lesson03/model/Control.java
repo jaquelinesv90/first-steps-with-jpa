@@ -1,4 +1,4 @@
-package lesson02.model;
+package lesson03.model;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name = "dominio")
 public class Control {
 	

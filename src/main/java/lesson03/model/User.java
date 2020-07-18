@@ -1,4 +1,4 @@
-package lesson02.model;
+package lesson03.model;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name = "usuario")
 public class User {
 	

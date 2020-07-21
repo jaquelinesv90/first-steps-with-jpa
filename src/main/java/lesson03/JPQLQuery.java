@@ -79,8 +79,6 @@ public class JPQLQuery {
 		for(UserDto u : listDto) {
 			System.out.println(u.getId()+","+u.getName());
 		}
-		
-		
 	}
 	
 	
@@ -98,7 +96,6 @@ public class JPQLQuery {
 		for(String u : listNames) {
 			System.out.println(u);
 		}
-		
 	}
 	
 
@@ -117,13 +114,10 @@ public class JPQLQuery {
 		User user = typedQuerySingle.getSingleResult();
 		System.out.println(user.getId()+ "," + user.getName());
 		
-		
 		String jpqlCast = "select u from User u where u.id = 1";
 		Query query = entityManager.createQuery(jpqlCast);
 		User user2 = (User)query.getSingleResult();
 		System.out.println(user2.getId()+ "," + user2.getName());
-		
-		
 	}
 	
 }

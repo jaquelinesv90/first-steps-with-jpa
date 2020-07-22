@@ -31,6 +31,13 @@ public class JPQLQuery {
 	}
 	
 	public static void leftJoin(EntityManager entityManager) {
+		String jpql = "select u, c from user u left join u.configuration c ";
+		TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
+		List<Object[]> list = typedQuery.getResultList();
+		
+		for(Object u : list) {
+			
+		}
 		
 	}
 	

@@ -11,6 +11,8 @@ public class Configuration {
 		@Id
 		private Integer id;
 		
+		// anotação mapsId: quer dizer que a minha chave estrangeira é também 
+		//minha chave primária
 		@MapsId
 		@OneToOne
 		private User user;

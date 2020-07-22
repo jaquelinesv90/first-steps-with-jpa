@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,10 +29,10 @@ public class User {
 		
 		@ManyToOne
 		private Control control;
-		/**
-		//		@OneToOne(mappedBy = "user" )
-		//	private Configuration configuration;
-		**/
+		
+		@OneToOne(mappedBy = "user" )
+		private Configuration configuration;
+		
 		
 		public Integer getId() {
 			return id;
@@ -80,7 +81,12 @@ public class User {
 		public void setLastAcess(LocalDateTime lastAcess) {
 			this.lastAcess = lastAcess;
 		}
-		
-		
-		
+
+		public Configuration getConfiguration() {
+			return configuration;
+		}
+
+		public void setConfiguration(Configuration configuration) {
+			this.configuration = configuration;
+		}	
 }

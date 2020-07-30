@@ -24,21 +24,46 @@ public class JPQLQuery {
 		//makingProjections(entityManager);
 		//passParameter(entityManager);
 		//innerJoin(entityManager);
-		 leftJoin(entityManager);
+		//leftJoin(entityManager);
+		joinFetch(entityManager);
 		
 		entityManager.close();
 		entityManagerFactory.close();
 	}
+	
+	
+	public static void joinFetch(EntityManager entityManager) {
+		String jpql = "select u from Usuario u join fetch u.configuracao join fetch u.dominio";
+		TypedQuery<User> typedQuery = entityManager.createQuery(jpql,User.class);
+		List<User> list = typedQuery.getResultList();
+		
+		//list.forEach(u -> System.out.println(u.getId() + ","+ u.getName()));
+	}
+	
 	
 	public static void leftJoin(EntityManager entityManager) {
 		String jpql = "select u, c from user u left join u.configuration c ";
 		TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 		List<Object[]> list = typedQuery.getResultList();
 		
-		for(Object u : list) {
-			
-		}
 		
+		// arr[0] == Usuario - no indice 0 ele guarda o usuario
+		// arr[1] == Configuracao - no indice 1 ele guarda a configuracao
+		
+		/** implementação do for em java 8+
+		 * 
+		 * list.forEach(arr -> {
+		 *  	String out = ((Usuario) arr[0]).getNome(); 
+		 * 	if( arr[1] == null){
+		 * 		out+= ", NULL";
+		 * } else {
+		 *  	out += "," + (Configuracao) arr[1]).getId();
+		 *  }
+		 *  
+		 *  System.out.println(out);
+		 *  
+		 * });
+		 */
 	}
 	
 	public static void innerJoin(EntityManager entityManager) {

@@ -1,8 +1,6 @@
 INSERT INTO dominio values(1,'Banco de dados');
 INSERT INTO dominio values(2,'LDAP');
 
-
-
 INSERT INTO usuario values(1,current_date,'mariafg','maria','12345',1);
 INSERT INTO usuario values(2,current_date,'jonas','jonaskr','12345',1);
 INSERT INTO usuario values(3,current_date,'joao','joajo','12345',2);

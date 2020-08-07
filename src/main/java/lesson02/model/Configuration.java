@@ -1,6 +1,5 @@
 package lesson02.model;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;

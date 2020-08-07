@@ -28,6 +28,7 @@ public class CarPersistence {
 		manager.persist(vehicle);
 		
 		tx.commit();
+		//fechando o EntityManager e o EntityManagerFactory
 		manager.close();
 		JpaUtil.close();
 		

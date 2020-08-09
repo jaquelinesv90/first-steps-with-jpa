@@ -1,5 +1,6 @@
 package lesson03;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,11 +26,30 @@ public class JPQLQuery {
 		//passParameter(entityManager);
 		//innerJoin(entityManager);
 		//leftJoin(entityManager);
-		joinFetch(entityManager);
+		//joinFetch(entityManager);
+		filteringData(entityManager);
+		
 		
 		entityManager.close();
 		entityManagerFactory.close();
 	}
+	
+	
+	public static void filteringData(EntityManager entityManager) {
+		// filtros disponiveis : LIKE, IS NULL, IS EMPTY, BETWEEN, >,<, >=, <=, =, <>
+		// LIKE = select u from User u where u.nome like concat(:nomeUser, '%')
+		// IS NULL = select u from Usuario u where u.senha is null
+		// IS EMPTY = select d from Control d where d.userList is empty
+		
+		String jpql = "select u from Usuario u where u.lastAcess between :yesterday and :today";
+		TypedQuery<User> typedQuery = entityManager.createQuery(jpql,User.class)
+				.setParameter("yesterday", LocalDateTime.now().minusDays(1))
+				.setParameter("today",LocalDateTime.now());
+		List<User> list = typedQuery.getResultList();
+		
+		//list.forEach(u -> System.out.println(u.getId() + ","+ u.getName()));
+	}
+	
 	
 	
 	public static void joinFetch(EntityManager entityManager) {

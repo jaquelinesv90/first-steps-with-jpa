@@ -28,4 +28,22 @@ desconectados, não tendo mais sincronia com o banco de dados.A JPA fornece oper
 novo EntityManager.
 
 
+Contexto de persistencia
+É uma coleção de objetos gerenciados por um EntityManager.Se uma entidade é pesquisada, mas ela já existe no contexto de
+persistencia, o objeto é retornado sem acessar o banco de dados.Esse recurso é chamado de cache de primeiro nível.
+Uma mesma entidade pode ser representada por diferentes objetos na memória, desde que seja em diferentes instâncias 
+de EntityManagers. Em uma única instancia de EntityManager, apenas um objeto que representa determinada entidade(com o
+mesmo identificador) pode ser gerenciada.pág 47
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -22,8 +22,14 @@ public class CarUpdating {
 		vehicle.setValue(vehicle.getValue().add(new BigDecimal(500)));
 		System.out.println("new value:" + vehicle.getValue());
 		
+		//os estados de entidades são sincronizados com o banco quando
+		// ocorre o commit da transação associada.
+		//o update é executado apenas no final da execução,
+		//exatamente durante o commit da transação
 		tx.commit();
 		manager.close();
 		JpaUtil.close();
+		
+		//podemos forçar a sincronização antes mesmo do commit, chamando o método flush.
 	}
 }

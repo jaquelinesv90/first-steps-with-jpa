@@ -35,6 +35,11 @@ Uma mesma entidade pode ser representada por diferentes objetos na memória, des
 de EntityManagers. Em uma única instancia de EntityManager, apenas um objeto que representa determinada entidade(com o
 mesmo identificador) pode ser gerenciada.pág 47
 
+Objetos desanexados
+São objetos em um estado que não é gerenciado pelo EntityManager,mas ainda representam entidades no banco.
+As alterações em objetos desanexados não são sincronizadas com o banco de dados.
+
+
 
 
 

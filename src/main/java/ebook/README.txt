@@ -37,7 +37,13 @@ mesmo identificador) pode ser gerenciada.pág 47
 
 Objetos desanexados
 São objetos em um estado que não é gerenciado pelo EntityManager,mas ainda representam entidades no banco.
-As alterações em objetos desanexados não são sincronizadas com o banco de dados.
+As alterações em objetos desanexados não são sincronizadas com o banco de dados.Utilizamos objetos desanexados, por exemplo,
+quando eles são expostos para alteração através de páginas web e apenas em um segundo momento o usuário solicita a 
+gravação das alterações do objeto.
+
+
+
+
 
 
 

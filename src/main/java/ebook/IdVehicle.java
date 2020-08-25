@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
+// a anotação Embeddable será sempre utilizada de forma
+// "embutida" em outra classe
 @Embeddable
 public class IdVehicle implements Serializable{
 		
@@ -14,6 +16,7 @@ public class IdVehicle implements Serializable{
 	public IdVehicle() {}
 	
 	public IdVehicle(String licensePlate, String city) {
+		super();
 		this.licensePlate = licensePlate;
 		this.city = city;
 	}

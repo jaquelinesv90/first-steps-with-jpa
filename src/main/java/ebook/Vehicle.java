@@ -45,6 +45,13 @@ public class Vehicle {
 	@Column( length = 60, nullable = false)
 	private BigDecimal value;
 	
+	
+	public IdVehicle getCode() {
+		return code;
+	}
+	public void setCode(IdVehicle code) {
+		this.code = code;
+	}
 	/*
 	public Long getCode() {
 		return code;

@@ -31,7 +31,7 @@ public class Vehicle {
 	// de gerenciamento de migrações(ex. Flyway),ou até mesmo manualmente, você não
 	// precisa especificar todos os detalhes fisícos das colunas.
 	@Column( length = 60, nullable = false)
-	private String manufacturer;
+	private String manufacturer;    
 	
 	@Column( length = 60, nullable = false)
 	private String model;

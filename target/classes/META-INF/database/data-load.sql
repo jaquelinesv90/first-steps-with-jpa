@@ -8,7 +8,7 @@ INSERT INTO usuario values(4,current_date,'marcelo','celo','12345',1);
 INSERT INTO usuario values(5,current_date,'raquel','raq','12345',2);
 INSERT INTO usuario values(6,current_date,'laura','lua','12345',2);
 
-INSERT INTO configuration values(false,false,1);
+INSERT INTO configuration values(false,false,1);     
 INSERT INTO configuration values(false,false,2);
 
 INSERT INTO tab_vehicle(licensePlate,city,manufacturer,model,yearManufacture,modelYear,value) values('AAA','111','Fiat','Toro',2020,2020,107000);

@@ -3,10 +3,8 @@ package ebook;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 //todas as anotações padronizadas pela JPA ficam 
@@ -18,10 +16,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tab_vehicle")
 public class Vehicle {
-	
+	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long code;*/
+	
+	@EmbeddedId
+	private IdVehicle code;
 	
 	// a definição de precisão nos atributos são importantes se
 	// você estiver gerando as tabelas com recurso de schema generation do JPA,
@@ -44,13 +45,13 @@ public class Vehicle {
 	@Column( length = 60, nullable = false)
 	private BigDecimal value;
 	
-	
+	/*
 	public Long getCode() {
 		return code;
 	}
 	public void setCode(Long code) {
 		this.code = code;
-	}
+	}*/
 	public String getManufacturer() {
 		return manufacturer;
 	}
@@ -90,7 +91,6 @@ public class Vehicle {
 		result = prime * result + ((code == null) ? 0 : code.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -106,5 +106,5 @@ public class Vehicle {
 		} else if (!code.equals(other.code))
 			return false;
 		return true;
-	}
+	}	
 }

@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 //todas as anotações padronizadas pela JPA ficam 
@@ -44,6 +46,13 @@ public class Vehicle {
 	
 	@Column( length = 60, nullable = false)
 	private BigDecimal value;
+	
+	//Anotação @Enumerated, para configurar o tipo de enumeração como String
+	//isso serve para que a coluna do banco armezene o nome da constante 
+	// e não o número que representa a opção na enumeração.
+	@Column(name = "fuel_type",nullable = false)
+	@Enumerated(EnumType.STRING)
+	private FuelType fuelType;
 	
 	
 	public IdVehicle getCode() {

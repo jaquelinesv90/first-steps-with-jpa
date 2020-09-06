@@ -1,6 +1,7 @@
 package ebook;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -8,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
 
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
@@ -50,10 +55,23 @@ public class Vehicle {
 	//Anotação @Enumerated, para configurar o tipo de enumeração como String
 	//isso serve para que a coluna do banco armezene o nome da constante 
 	// e não o número que representa a opção na enumeração.
+	// Se o parametro da anotação for alterado para EnumType.ORDINAL(padrão),
+	//será inserido o número que representa a opção na enumeração
 	@Column(name = "fuel_type",nullable = false)
 	@Enumerated(EnumType.STRING)
 	private FuelType fuelType;
 	
+	//Os atributos d data podem ser do tipo Date ou Calendar, mas nesse caso
+	//preisaríamos também da anotação @Temporal para informar a precisão.
+	//LocalDate é equivalente a TemporalType.DATE,LocalDateTime equivale a 
+	//TemporalType.TIMESTAMP e LocalTime é TemporalType.TIME
+	@Temporal(TemporalType.DATE)
+	@Column(name="date_Register", nullable = false)
+	private LocalDate dateRegister;
+	
+	//Atributos anotados com @Transient não representam uma coluna no banco de dados.
+	@Transient
+	private String fullDescription;
 	
 	public IdVehicle getCode() {
 		return code;
@@ -98,6 +116,13 @@ public class Vehicle {
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
+	public FuelType getFuelType() {
+		return fuelType;
+	}
+	public void setFuelType(FuelType fuelType) {
+		this.fuelType = fuelType;
+	}
+	
 	
 	//evitar elementos duplicados
 	@Override

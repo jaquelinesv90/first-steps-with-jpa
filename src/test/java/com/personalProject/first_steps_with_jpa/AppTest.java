@@ -1,4 +1,4 @@
-package com.projetoPessoal.primeiros_passos_jpa;
+package com.personalProject.first_steps_with_jpa;
 
 import static org.junit.Assert.assertTrue;
 

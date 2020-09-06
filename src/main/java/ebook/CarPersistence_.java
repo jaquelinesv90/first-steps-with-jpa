@@ -21,6 +21,7 @@ public class CarPersistence_ {
 		vehicle.setYearManufacture(2020);
 		vehicle.setModelYear(2020);
 		vehicle.setValue(new BigDecimal(71_300));
+		vehicle.setFuelType(FuelType.BIOFUEL);
 		
 		manager.persist(vehicle);
 

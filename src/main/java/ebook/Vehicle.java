@@ -2,12 +2,14 @@ package ebook;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -67,11 +69,15 @@ public class Vehicle {
 	//TemporalType.TIMESTAMP e LocalTime é TemporalType.TIME
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_Register", nullable = false)
-	private LocalDate dateRegister;
+	private Date dateRegister;
 	
 	//Atributos anotados com @Transient não representam uma coluna no banco de dados.
 	@Transient
 	private String fullDescription;
+	
+	//tipo de dado que pode armazenar objetos grandes em caracteres(textos muito longos).
+	@Lob
+	private String especification;
 	
 	public IdVehicle getCode() {
 		return code;
@@ -121,6 +127,24 @@ public class Vehicle {
 	}
 	public void setFuelType(FuelType fuelType) {
 		this.fuelType = fuelType;
+	}
+	public Date getDateRegister() {
+		return dateRegister;
+	}
+	public void setDateRegister(Date dateRegister) {
+		this.dateRegister = dateRegister;
+	}
+	public String getFullDescription() {
+		return fullDescription;
+	}
+	public void setFullDescription(String fullDescription) {
+		this.fullDescription = fullDescription;
+	}
+	public String getEspecification() {
+		return especification;
+	}
+	public void setEspecification(String especification) {
+		this.especification = especification;
 	}
 	
 	

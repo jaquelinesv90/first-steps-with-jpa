@@ -22,6 +22,7 @@ import javax.persistence.Transient;
 
 // anotação entity diz que a classe é uma entidade JPA
 // que representa uma tabela de banco de dados
+// classe anotada com o @Entity não pode ser final
 @Entity
 @Table(name = "tab_vehicle")
 public class Vehicle {

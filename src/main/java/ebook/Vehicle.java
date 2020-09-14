@@ -1,7 +1,6 @@
 package ebook;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,8 +28,11 @@ public class Vehicle {
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;*/
-	
+	private Long code;
+	 
+	*
+	*
+	*/
 	@EmbeddedId
 	private IdVehicle code;
 	
@@ -78,6 +80,7 @@ public class Vehicle {
 	
 	//tipo de dado que pode armazenar objetos grandes em caracteres(textos muito longos).
 	@Lob
+	@Column
 	private String especification;
 	
 	public IdVehicle getCode() {
@@ -147,7 +150,6 @@ public class Vehicle {
 	public void setEspecification(String especification) {
 		this.especification = especification;
 	}
-	
 	
 	//evitar elementos duplicados
 	@Override

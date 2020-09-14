@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
-// a anotação Embeddable será sempre utilizada de forma
-// "embutida" em outra classe    
+/* a anotação Embeddable será sempre utilizada de forma
+"embutida" em outra classe 
+ A anotação @Embeddable significa que teremos uma chave composta,
+incluiremos os atributos cidade e placa como identificador do veiculo. 
+*/   
 @Embeddable
 public class IdVehicle implements Serializable{
 		

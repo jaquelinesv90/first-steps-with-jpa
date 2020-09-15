@@ -14,10 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
-
 
 // anotação entity diz que a classe é uma entidade JPA
 // que representa uma tabela de banco de dados
@@ -31,7 +29,7 @@ public class Vehicle {
 	private Long code;
 	 
 	*
-	*
+	* o id do veículo será uma chave composta
 	*/
 	@EmbeddedId
 	private IdVehicle code;
@@ -82,6 +80,11 @@ public class Vehicle {
 	@Lob
 	@Column
 	private String especification;
+	
+	//Objeto grande binário é um tipo de dado em banco que pode armazenar
+	//objetos grandes em binário(incluindo executáveis,músicas,imagens)
+	@Lob
+	private byte[] photo;
 	
 	public IdVehicle getCode() {
 		return code;
@@ -150,7 +153,12 @@ public class Vehicle {
 	public void setEspecification(String especification) {
 		this.especification = especification;
 	}
-	
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 	//evitar elementos duplicados
 	@Override
 	public int hashCode() {

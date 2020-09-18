@@ -13,7 +13,9 @@ incluiremos os atributos cidade e placa como identificador do veiculo.
 public class IdVehicle implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
+	
 	private String licensePlate;
+	
 	private String city;
 	
 	public IdVehicle() {}
@@ -23,7 +25,6 @@ public class IdVehicle implements Serializable{
 		this.licensePlate = licensePlate;
 		this.city = city;
 	}
-	
 	
 	public String getLicensePlate() {
 		return licensePlate;
@@ -39,5 +40,33 @@ public class IdVehicle implements Serializable{
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	// a implementação do método é obrigatória caso
+	// não haja o erro a seguir é mostrado:
+	//Embedded ID class should include method definitions for equals() and hashcode()
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((licensePlate == null) ? 0 : licensePlate.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IdVehicle other = (IdVehicle) obj;
+		if (licensePlate == null) {
+			if (other.licensePlate != null)
+				return false;
+		} else if (!licensePlate.equals(other.licensePlate))
+			return false;
+		return true;
 	}
 }

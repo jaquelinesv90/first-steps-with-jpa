@@ -41,7 +41,14 @@ As alterações em objetos desanexados não são sincronizadas com o banco de da
 quando eles são expostos para alteração através de páginas web e apenas em um segundo momento o usuário solicita a 
 gravação das alterações do objeto.
 
-
+*Regras para implementação de chaves primárias compostas
+- É uma classe POJO.
+- É uma classe pública com um construtor público sem argumento.
+- Se você usar o acesso baseado em propriedade, as propriedades da classe de chave primária serão públicas ou protegidas.
+- É serializável.
+- Ele define os métodos equals e hashCode. A semântica de igualdade de valor para esses métodos deve ser consistente com a
+igualdade do banco de dados para os tipos de banco de dados para os quais a chave é mapeada.
+- Uma instância do EmbeddedId é usada com a operação EntityManager find (), para encontrar uma entidade por seu id.
 
 
 

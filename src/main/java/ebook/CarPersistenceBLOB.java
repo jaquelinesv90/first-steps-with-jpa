@@ -19,9 +19,10 @@ import javax.swing.JOptionPane;
 public class CarPersistenceBLOB {
 	
 	public static void main(String[] args) throws IOException{
-		//Path path = FileSystems.getDefault()
-		//	.getPath("images/index.jpg");
-		//byte[] photo= Files.readAllBytes(path);
+		//Lê bytes do arquivo da imagem
+		Path path = FileSystems.getDefault()
+			.getPath("images/index.jpg");
+		byte[] photo= Files.readAllBytes(path);
 		
 		EntityManager manager = JpaUtil.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
@@ -33,7 +34,7 @@ public class CarPersistenceBLOB {
 		vehicle.setValue(new BigDecimal(100_000));
 		vehicle.setFuelType(FuelType.BIOFUEL);
 		vehicle.setDateRegister(new Date());
-		//vehicle.setPhoto(photo);
+		vehicle.setPhoto(photo);
 		
 		manager.persist(vehicle);
 		tx.commit();

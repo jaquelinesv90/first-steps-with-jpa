@@ -28,9 +28,12 @@ public class Vehicle{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long code;
-	 
 	*
 	* o id do veículo será uma chave composta
+	* Nota: Chaves primárias compostas normalmente surgem 
+	* durante o mapeamento de bancos de dados legados,
+	*  quando a chave do banco de dados é composta por 
+	*  várias colunas.
 	*/
 	@EmbeddedId
 	private IdVehicle code;
@@ -87,19 +90,14 @@ public class Vehicle{
 	@Lob
 	private byte[] photo;
 	
+	public Vehicle() {}
+	
 	public IdVehicle getCode() {
 		return code;
 	}
 	public void setCode(IdVehicle code) {
 		this.code = code;
 	}
-	/*
-	public Long getCode() {
-		return code;
-	}
-	public void setCode(Long code) {
-		this.code = code;
-	}*/
 	public String getManufacturer() {
 		return manufacturer;
 	}

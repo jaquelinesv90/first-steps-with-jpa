@@ -49,6 +49,7 @@ public class IdVehicle implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((licensePlate == null) ? 0 : licensePlate.hashCode());
 		return result;
 	}
@@ -62,6 +63,11 @@ public class IdVehicle implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		IdVehicle other = (IdVehicle) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
 		if (licensePlate == null) {
 			if (other.licensePlate != null)
 				return false;

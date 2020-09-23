@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -89,6 +90,11 @@ public class Vehicle{
 	//objetos grandes em binário(incluindo executáveis,músicas,imagens)
 	@Lob
 	private byte[] photo;
+	
+	@Embedded
+	private Owner owner;
+	
+	
 	
 	public Vehicle() {}
 	

@@ -50,6 +50,11 @@ gravação das alterações do objeto.
 igualdade do banco de dados para os tipos de banco de dados para os quais a chave é mapeada.
 - Uma instância do EmbeddedId é usada com a operação EntityManager find (), para encontrar uma entidade por seu id.
 
+Objetos embutidos
+Objetos embutidos são componenetes de uma entidade, cujas propriedades são mapeadas para a mesma tabela da entidade.
+Em algumas situação, podemos precisar usar a orientação a objetos para componentizar nossas entidades, mas manter os
+dados  em uma única tabela.Outra situação comum é o mapeamento de tabelas de banco de dados legados, onde não é permitido
+alterar a estrutura das tabelas.
 
 
 

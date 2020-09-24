@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -69,7 +69,7 @@ public class Vehicle{
 	@Enumerated(EnumType.STRING)
 	private FuelType fuelType;
 	
-	//Os atributos d data podem ser do tipo Date ou Calendar, mas nesse caso
+	//Os atributos de data podem ser do tipo Date ou Calendar, mas nesse caso
 	//preisaríamos também da anotação @Temporal para informar a precisão.
 	//LocalDate é equivalente a TemporalType.DATE,LocalDateTime equivale a 
 	//TemporalType.TIMESTAMP e LocalTime é TemporalType.TIME
@@ -91,9 +91,8 @@ public class Vehicle{
 	@Lob
 	private byte[] photo;
 	
-	@Embedded
+	@OneToOne
 	private Owner owner;
-	
 	
 	
 	public Vehicle() {}

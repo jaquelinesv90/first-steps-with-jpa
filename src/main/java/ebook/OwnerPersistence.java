@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class CarPersistence {
+public class OwnerPersistence {
 	
 	public static void main(String[] args) {
 		// Obtém um EntityManager, que é responsável por
@@ -13,6 +13,12 @@ public class CarPersistence {
  		//Iniciando uma nova transação
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
+		
+		Owner owner = new Owner();
+		owner.setName_owner("Joaozinho");
+		owner.setTelephone_owner("(34) 123-4567");
+		
+		manager.persist(owner);
 		
 		Vehicle vehicle = new Vehicle();
 		vehicle.setManufacturer("Honda");

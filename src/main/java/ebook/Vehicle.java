@@ -8,6 +8,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -39,13 +40,13 @@ public class Vehicle{
 	@EmbeddedId
 	private IdVehicle code;
 	
-	// a definição de precisão nos atributos são importantes se
-	// você estiver gerando as tabelas com recurso de schema generation do JPA,
-	// mas não é recomendado o uso em produção.
-	// Caso o schema do seu banco seja gerado externamente, por algumas ferramenta 
-	// de gerenciamento de migrações(ex. Flyway),ou até mesmo manualmente, você não
-	// precisa especificar todos os detalhes fisícos das colunas.
-	@Column( length = 60, nullable = false)
+	/* A definição de precisão nos atributos são importantes se
+	 você estiver gerando as tabelas com recurso de schema generation do JPA,
+	 mas não é recomendado o uso em produção.
+	 Caso o schema do seu banco seja gerado externamente, por algumas ferramenta 
+	 de gerenciamento de migrações(ex. Flyway),ou até mesmo manualmente, você não
+	 precisa especificar todos os detalhes fisícos das colunas.
+	@Column( length = 60, nullable = false) */
 	private String manufacturer;    
 	
 	@Column( length = 60, nullable = false)
@@ -91,7 +92,13 @@ public class Vehicle{
 	@Lob
 	private byte[] photo;
 	
-	@OneToOne
+	/*O relacionamento one-to-one aceita referencias nulas, por padrão.
+	 podemos obrigfar a atribuição do owner durante a persistencia do
+	 veículo, incluindo o atributo optional com valor false na anotação
+	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
+	 proprietário, uma exceção é lançada.*/
+	@OneToOne(optional = false)
+	@JoinColumn(name ="cod_owner")
 	private Owner owner;
 	
 	
@@ -163,6 +170,14 @@ public class Vehicle{
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
 	//evitar elementos duplicados
 	@Override
 	public int hashCode() {

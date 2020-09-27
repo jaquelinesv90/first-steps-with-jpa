@@ -2,6 +2,7 @@ package ebook;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /* a anotação Embeddable será sempre utilizada de forma
@@ -14,8 +15,10 @@ public class IdVehicle implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
 	
+	@Column
 	private String licensePlate;
 	
+	@Column
 	private String city;
 	
 	public IdVehicle() {}

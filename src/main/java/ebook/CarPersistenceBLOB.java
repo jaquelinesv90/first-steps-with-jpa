@@ -21,7 +21,7 @@ public class CarPersistenceBLOB {
 	public static void main(String[] args) throws IOException{
 		//Lê bytes do arquivo da imagem
 		Path path = FileSystems.getDefault()
-			.getPath("images/index.jpg");
+				.getPath("images/index.jpg");
 		byte[] photo= Files.readAllBytes(path);
 		
 		EntityManager manager = JpaUtil.getEntityManager();

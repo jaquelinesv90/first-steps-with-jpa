@@ -9,7 +9,7 @@ public class CarSearchingList {
 	public static void main(String[] args) {
 		
 		EntityManager manager = JpaUtil.getEntityManager();
-		
+			
 		List<Vehicle> vehicles = (List<Vehicle>) manager
 				.createQuery("select v from Vehicle v", Vehicle.class)
 				.getResultList();
@@ -20,7 +20,14 @@ public class CarSearchingList {
 			}
 			
 			manager.close();
-			JpaUtil.close();
+			JpaUtil.close(); 
+		/* 
+		Vehicle v = manager.find(Vehicle.class, 1L);
+		
+		System.out.println(v.getModel() + " - "+
+				v.getOwner().getName_owner());
+		manager.close();
+		JpaUtil.close(); */
 	}
 
 }

@@ -93,7 +93,7 @@ public class Vehicle{
 	private byte[] photo;
 	
 	/*O relacionamento one-to-one aceita referencias nulas, por padrão.
-	 podemos obrigfar a atribuição do owner durante a persistencia do
+	 podemos obrigar a atribuição do owner durante a persistencia do
 	 veículo, incluindo o atributo optional com valor false na anotação
 	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
 	 proprietário, uma exceção é lançada.*/

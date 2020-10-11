@@ -96,7 +96,12 @@ public class Vehicle{
 	 podemos obrigar a atribuição do owner durante a persistencia do
 	 veículo, incluindo o atributo optional com valor false na anotação
 	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
-	 proprietário, uma exceção é lançada.*/
+	 proprietário, uma exceção é lançada.
+	 A associação é unidirecional, ou sejam podemos obter o proprietário
+	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
+	 de um proprietário - para torna-lá bidirecional é necessário criar 
+	 o atributo veículo na classe - proprietario.
+	 */
 	@OneToOne(optional = false)
 	@JoinColumn(name ="cod_owner")
 	private Owner owner;

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -22,6 +23,16 @@ public class Owner {
 	
 	@Column
 	private String email;
+	
+	/* Campo não obrigatório - o mapeamento pode ser
+	 * unidirecional.
+	 * Ao adicionar este campo e a anotação fazemos a
+	 * associação um-para-um bidirecional e então conseguimos
+	 * obter o veículo a partir de um proprietário.
+	 * 
+	 */
+	@OneToOne(mappedBy = "owner")
+	private Vehicle vehicle;
 
 	public Owner() {}
 	

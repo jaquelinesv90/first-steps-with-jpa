@@ -29,10 +29,9 @@ public class Owner {
 	 * Ao adicionar este campo e a anotação fazemos a
 	 * associação um-para-um bidirecional e então conseguimos
 	 * obter o veículo a partir de um proprietário.
-	 * 
-	 */
 	@OneToOne(mappedBy = "owner")
 	private Vehicle vehicle;
+	*/
 
 	public Owner() {}
 	

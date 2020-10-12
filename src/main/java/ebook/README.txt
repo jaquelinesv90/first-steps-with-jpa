@@ -28,14 +28,14 @@ desconectados, não tendo mais sincronia com o banco de dados.A JPA fornece oper
 novo EntityManager.
 
 
-Contexto de persistencia
+1.Contexto de persistencia
 É uma coleção de objetos gerenciados por um EntityManager.Se uma entidade é pesquisada, mas ela já existe no contexto de
 persistencia, o objeto é retornado sem acessar o banco de dados.Esse recurso é chamado de cache de primeiro nível.
 Uma mesma entidade pode ser representada por diferentes objetos na memória, desde que seja em diferentes instâncias 
 de EntityManagers. Em uma única instancia de EntityManager, apenas um objeto que representa determinada entidade(com o
 mesmo identificador) pode ser gerenciada.pág 47
 
-Objetos desanexados
+2.Objetos desanexados
 São objetos em um estado que não é gerenciado pelo EntityManager,mas ainda representam entidades no banco.
 As alterações em objetos desanexados não são sincronizadas com o banco de dados.Utilizamos objetos desanexados, por exemplo,
 quando eles são expostos para alteração através de páginas web e apenas em um segundo momento o usuário solicita a 
@@ -50,20 +50,37 @@ gravação das alterações do objeto.
 igualdade do banco de dados para os tipos de banco de dados para os quais a chave é mapeada.
 - Uma instância do EmbeddedId é usada com a operação EntityManager find (), para encontrar uma entidade por seu id.
 
-Objetos embutidos
+3.Objetos embutidos
 Objetos embutidos são componenetes de uma entidade, cujas propriedades são mapeadas para a mesma tabela da entidade.
 Em algumas situação, podemos precisar usar a orientação a objetos para componentizar nossas entidades, mas manter os
 dados  em uma única tabela.Outra situação comum é o mapeamento de tabelas de banco de dados legados, onde não é permitido
 alterar a estrutura das tabelas.
 
+4.Mapeamento um-para-um
+conhecido como @OneToOne 
+
+ Veiculo 1 ---> 1 proprietario
+ 
+implementação unidirecional:
+*obtem-se o proprietário a partir de um veículo
+Na classe veículo adicione o atributo proprietario, mapeando com OneToOne
+adicione também a anotação @JoinColumn(name = "cod_proprietario")
 
 
+implementação bidirecional:
+*obtem-se o proprietário a partir de um veículo e o veículo a partir de um propritário
+Na classe veículo adicione o atributo proprietario, mapeando com @OneToOne
+adicione também a anotação @JoinColumn(name = "cod_proprietario")
 
+Na classe proprietario  adicione o atributo veiculo, mapeando com @OneToOne
+mappedBy "proprietario".
+ex:   @OneToOne(mappedBy = "proprietario")
+	  private Veiculo veiculo;
 
+5.Mapeamento muitos-para-um
+conhecido como @Many-to-one
 
-
-
-
+Veiculo * ---> 1 proprietario
 
 
 

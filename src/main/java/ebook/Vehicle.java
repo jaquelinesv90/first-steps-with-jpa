@@ -101,11 +101,11 @@ public class Vehicle{
 	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
 	 de um proprietário - para torna-lá bidirecional é necessário criar 
 	 o atributo veículo na classe - proprietario.
-	 */
+	 
 	@OneToOne(optional = false)
 	@JoinColumn(name ="cod_owner")
 	private Owner owner;
-	
+	*/
 	
 	public Vehicle() {}
 	

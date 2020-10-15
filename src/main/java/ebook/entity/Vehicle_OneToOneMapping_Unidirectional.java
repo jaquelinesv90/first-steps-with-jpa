@@ -1,4 +1,4 @@
-package ebook;
+package ebook.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,6 +16,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import ebook.FuelType;
+import ebook.IdVehicle;
+
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
 
@@ -23,9 +26,10 @@ import javax.persistence.Transient;
 // que representa uma tabela de banco de dados
 // classe anotada com o @Entity não pode ser final
 
-@Entity
+// exemplo do mapeamento OneToOne 
+//@Entity
 @Table(name = "tab_vehicle")
-public class Vehicle{
+public class Vehicle_OneToOneMapping_Unidirectional{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -97,92 +101,110 @@ public class Vehicle{
 	 veículo, incluindo o atributo optional com valor false na anotação
 	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
 	 proprietário, uma exceção é lançada.
-	 A associação é unidirecional, ou sejam podemos obter o proprietário
+	 Quando a associação é unidirecional,podemos obter o proprietário
 	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
 	 de um proprietário - para torna-lá bidirecional é necessário criar 
-	 o atributo veículo na classe - proprietario.
-	 
-	@OneToOne(optional = false)
-	@JoinColumn(name ="cod_owner")
-	private Owner owner;
-	*/
+	 o atributo veículo na classe - proprietario.*/
+	@OneToOne
+	private Owner_OneToOneMapping_Unidirectional owner;
 	
+	
+	public Vehicle_OneToOneMapping_Unidirectional() {}
 	
 
-	
-	public Vehicle() {}
-	
 	public IdVehicle getCode() {
 		return code;
 	}
+
 	public void setCode(IdVehicle code) {
 		this.code = code;
 	}
+
 	public String getManufacturer() {
 		return manufacturer;
 	}
+
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+
 	public String getModel() {
 		return model;
 	}
+
 	public void setModel(String model) {
 		this.model = model;
 	}
+
 	public Integer getYearManufacture() {
 		return yearManufacture;
 	}
+
 	public void setYearManufacture(Integer yearManufacture) {
 		this.yearManufacture = yearManufacture;
 	}
+
 	public Integer getModelYear() {
 		return modelYear;
 	}
+
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
 	}
+
 	public BigDecimal getValue() {
 		return value;
 	}
+
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
+
 	public FuelType getFuelType() {
 		return fuelType;
 	}
+
 	public void setFuelType(FuelType fuelType) {
 		this.fuelType = fuelType;
 	}
+
 	public Date getDateRegister() {
 		return dateRegister;
 	}
+
 	public void setDateRegister(Date dateRegister) {
 		this.dateRegister = dateRegister;
 	}
+
 	public String getFullDescription() {
 		return fullDescription;
 	}
+
 	public void setFullDescription(String fullDescription) {
 		this.fullDescription = fullDescription;
 	}
+
 	public String getEspecification() {
 		return especification;
 	}
+
 	public void setEspecification(String especification) {
 		this.especification = especification;
 	}
+
 	public byte[] getPhoto() {
 		return photo;
 	}
+
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-	public Owner getOwner() {
+
+	public Owner_OneToOneMapping_Unidirectional getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Owner owner) {
+	public void setOwner(Owner_OneToOneMapping_Unidirectional owner) {
 		this.owner = owner;
 	}
 
@@ -202,7 +224,7 @@ public class Vehicle{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle other = (Vehicle) obj;
+		Vehicle_OneToOneMapping_Unidirectional other = (Vehicle_OneToOneMapping_Unidirectional) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

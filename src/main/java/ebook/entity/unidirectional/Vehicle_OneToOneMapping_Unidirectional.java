@@ -1,11 +1,10 @@
-package ebook.entity;
+package ebook.entity.unidirectional;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
@@ -106,6 +105,7 @@ public class Vehicle_OneToOneMapping_Unidirectional{
 	 de um proprietário - para torna-lá bidirecional é necessário criar 
 	 o atributo veículo na classe - proprietario.*/
 	@OneToOne
+	@JoinColumn(name = "cod_proprietario")
 	private Owner_OneToOneMapping_Unidirectional owner;
 	
 	

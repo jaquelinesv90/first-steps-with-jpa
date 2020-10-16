@@ -1,4 +1,4 @@
-package ebook.entity;
+package ebook.entity.bidirectional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

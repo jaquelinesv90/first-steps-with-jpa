@@ -1,4 +1,4 @@
-package ebook.entity;
+package ebook.entity.bidirectional;
 
 import java.math.BigDecimal;
 import java.util.Date;

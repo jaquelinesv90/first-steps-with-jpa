@@ -1,4 +1,4 @@
-package ebook.entity.bidirectional;
+package ebook.entity.ManyToOne;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,6 +10,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,10 +27,9 @@ import ebook.IdVehicle;
 // que representa uma tabela de banco de dados
 // classe anotada com o @Entity não pode ser final
 
-// exemplo do mapeamento OneToOne 
-@Entity
+//@Entity
 @Table(name = "tab_vehicle")
-public class Vehicle_OneToOneMapping_Bidirectional{
+public class Vehicle{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,116 +96,91 @@ public class Vehicle_OneToOneMapping_Bidirectional{
 	@Lob
 	private byte[] photo;
 	
-	/*O relacionamento one-to-one aceita referencias nulas, por padrão.
-	 podemos obrigar a atribuição do owner durante a persistencia do
-	 veículo, incluindo o atributo optional com valor false na anotação
-	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
-	 proprietário, uma exceção é lançada.
-	 Quando a associação é unidirecional,podemos obter o proprietário
-	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
-	 de um proprietário - para torna-lá bidirecional é necessário criar 
-	 o atributo veículo na classe - proprietario.*/
-	@OneToOne(optional = false)
+	/*Relacionamento muitos-para-um, desta forma um
+	 * veículo poderá possuir apenas um proprietário, mas
+	 * um proprietário poderá estar associado a muitos
+	 * veículos.
+	 * A anotação @ManyToOne indica a multiplicidade do 
+	 * relacionamento entre veículo e proprietário*/
+	 
+	@ManyToOne
 	@JoinColumn(name ="cod_owner")
-	private Owner_OneToOneMapping_Bidirectional owner;
+	private Owner owner;
 	
 	
-	public Vehicle_OneToOneMapping_Bidirectional() {}
+	public Vehicle() {}
 	
-
 	public IdVehicle getCode() {
 		return code;
 	}
-
 	public void setCode(IdVehicle code) {
 		this.code = code;
 	}
-
 	public String getManufacturer() {
 		return manufacturer;
 	}
-
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-
 	public String getModel() {
 		return model;
 	}
-
 	public void setModel(String model) {
 		this.model = model;
 	}
-
 	public Integer getYearManufacture() {
 		return yearManufacture;
 	}
-
 	public void setYearManufacture(Integer yearManufacture) {
 		this.yearManufacture = yearManufacture;
 	}
-
 	public Integer getModelYear() {
 		return modelYear;
 	}
-
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
 	}
-
 	public BigDecimal getValue() {
 		return value;
 	}
-
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
-
 	public FuelType getFuelType() {
 		return fuelType;
 	}
-
 	public void setFuelType(FuelType fuelType) {
 		this.fuelType = fuelType;
 	}
-
 	public Date getDateRegister() {
 		return dateRegister;
 	}
-
 	public void setDateRegister(Date dateRegister) {
 		this.dateRegister = dateRegister;
 	}
-
 	public String getFullDescription() {
 		return fullDescription;
 	}
-
 	public void setFullDescription(String fullDescription) {
 		this.fullDescription = fullDescription;
 	}
-
 	public String getEspecification() {
 		return especification;
 	}
-
 	public void setEspecification(String especification) {
 		this.especification = especification;
 	}
-
 	public byte[] getPhoto() {
 		return photo;
 	}
-
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-
-	public Owner_OneToOneMapping_Bidirectional getOwner() {
+	public Owner getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Owner_OneToOneMapping_Bidirectional owner) {
+	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
 
@@ -225,7 +200,7 @@ public class Vehicle_OneToOneMapping_Bidirectional{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle_OneToOneMapping_Bidirectional other = (Vehicle_OneToOneMapping_Bidirectional) obj;
+		Vehicle other = (Vehicle) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

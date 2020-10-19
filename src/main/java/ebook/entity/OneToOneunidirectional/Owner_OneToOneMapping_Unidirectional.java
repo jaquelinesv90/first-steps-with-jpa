@@ -1,4 +1,4 @@
-package ebook.entity.unidirectional;
+package ebook.entity.OneToOneunidirectional;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

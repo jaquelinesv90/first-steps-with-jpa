@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 //@Entity
-public class Owner {
+public class Owner_ManyToOne {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Owner {
 	private String email;
 	
 
-	public Owner() {}
+	public Owner_ManyToOne() {}
 	
 
 	public String getName_owner() {

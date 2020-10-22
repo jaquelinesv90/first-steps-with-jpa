@@ -17,6 +17,10 @@ INSERT INTO tab_vehicle(licensePlate,city,manufacturer,model,year_manufacture,mo
 INSERT INTO tab_vehicle(licensePlate,city,manufacturer,model,year_manufacture,model_year,value,fuel_type,date_Register,especification, owner) values('DDD','444','Fiat','Strada',2020,2020,89000,'ALKOHOL',CURRENT_DATE,'Turism car',4);
 INSERT INTO tab_vehicle(licensePlate,city,manufacturer,model,year_manufacture,model_year,value,fuel_type,date_Register,especification, owner) values('EEE','555','Fiat','Siena',2020,2020,32000,'BIOFUEL',CURRENT_DATE,'Turism car',5);
 
+
+INSERT INTO tab_vehicle_collection(licensePlate,city,manufacturer,model,year_manufacture,model_year,value,fuel_type,date_Register,especification, owner) values('EEE','555','Fiat','Siena',2020,2020,32000,'BIOFUEL',CURRENT_DATE,'Turism car',5);
+
+
 INSERT INTO owner(code,name_owner,telephone_owner,email) values(1,'Fernando Martins','11 9999 9999','fernando@email.com');
 INSERT INTO owner(code,name_owner,telephone_owner,email) values(2,'Isabela Santos','34 8888 88888','isabela@email.com');
 INSERT INTO owner(code,name_owner,telephone_owner,email) values(3,'Jonas silva','45 7777 7777','Jonas@email.com');

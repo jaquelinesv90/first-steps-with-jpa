@@ -1,4 +1,4 @@
-package ebook.entity.ManyToOneCollection;
+package ebook.entity.ManyToOne;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -29,7 +29,7 @@ import ebook.IdVehicle;
 
 //@Entity
 @Table(name = "tab_vehicle")
-public class Vehicle{
+public class Vehicle_ManyToOne{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -105,10 +105,10 @@ public class Vehicle{
 	 
 	@ManyToOne
 	@JoinColumn(name ="cod_owner")
-	private Owner owner;
+	private Owner_ManyToOne owner;
 	
 	
-	public Vehicle() {}
+	public Vehicle_ManyToOne() {}
 	
 	public IdVehicle getCode() {
 		return code;
@@ -176,11 +176,11 @@ public class Vehicle{
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-	public Owner getOwner() {
+	public Owner_ManyToOne getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Owner owner) {
+	public void setOwner(Owner_ManyToOne owner) {
 		this.owner = owner;
 	}
 
@@ -200,7 +200,7 @@ public class Vehicle{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle other = (Vehicle) obj;
+		Vehicle_ManyToOne other = (Vehicle_ManyToOne) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

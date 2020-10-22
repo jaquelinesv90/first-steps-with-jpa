@@ -1,4 +1,4 @@
-package ebook.entity.ManyToOne;
+package ebook.entity.ManyToOneCollection;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,7 +11,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,9 +26,9 @@ import ebook.IdVehicle;
 // que representa uma tabela de banco de dados
 // classe anotada com o @Entity não pode ser final
 
-//@Entity
-@Table(name = "tab_vehicle")
-public class Vehicle{
+@Entity
+@Table(name = "tab_vehicle_collection")
+public class Vehicle_ManyToOneCollection{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -105,10 +104,10 @@ public class Vehicle{
 	 
 	@ManyToOne
 	@JoinColumn(name ="cod_owner")
-	private Owner owner;
+	private Owner_ManyToOneCollection owner;
 	
 	
-	public Vehicle() {}
+	public Vehicle_ManyToOneCollection() {}
 	
 	public IdVehicle getCode() {
 		return code;
@@ -176,11 +175,11 @@ public class Vehicle{
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-	public Owner getOwner() {
+	public Owner_ManyToOneCollection getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Owner owner) {
+	public void setOwner(Owner_ManyToOneCollection owner) {
 		this.owner = owner;
 	}
 
@@ -200,7 +199,7 @@ public class Vehicle{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle other = (Vehicle) obj;
+		Vehicle_ManyToOneCollection other = (Vehicle_ManyToOneCollection) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

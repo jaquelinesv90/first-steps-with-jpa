@@ -3,13 +3,14 @@ package ebook.entity.ManyToOneCollection;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-//@Entity
-public class Owner {
+@Entity
+public class Owner_ManyToOneCollection {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +26,10 @@ public class Owner {
 	private String email;
 	
 	@OneToMany(mappedBy = "owner")
-	private List<Vehicle> vehicle;
+	private List<Vehicle_ManyToOneCollection> vehicle;
 	
 
-	public Owner() {}
+	public Owner_ManyToOneCollection() {}
 	
 
 	public String getName_owner() {
@@ -54,4 +55,21 @@ public class Owner {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Long getCode() {
+		return code;
+	}
+
+	public void setCode(Long code) {
+		this.code = code;
+	}
+
+	public List<Vehicle_ManyToOneCollection> getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(List<Vehicle_ManyToOneCollection> vehicle) {
+		this.vehicle = vehicle;
+	}
+
 }

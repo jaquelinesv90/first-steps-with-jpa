@@ -2,19 +2,21 @@ package ebook;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import ebook.entity.ManyToMany.Accessory;
 
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
@@ -105,6 +107,8 @@ public class Vehicle{
 	@OneToOne(optional = false)
 	@JoinColumn(name ="cod_owner")*/
 	private Owner owner;
+	
+	private Set<Accessory> accessory = new HashSet<>();
 	
 	
 	public Vehicle() {}

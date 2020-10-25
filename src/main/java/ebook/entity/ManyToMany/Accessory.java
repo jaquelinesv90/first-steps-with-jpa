@@ -14,7 +14,6 @@ import javax.persistence.Table;
  * 
  */
 
-
 @Entity
 @Table(name = "accessory")
 public class Accessory {
@@ -44,9 +43,4 @@ public class Accessory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
-	
-
 }

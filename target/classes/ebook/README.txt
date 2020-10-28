@@ -79,8 +79,17 @@ ex:   @OneToOne(mappedBy = "proprietario")
 
 5.Mapeamento muitos-para-um
 conhecido como @Many-to-one
+*um veículo poderá possuir apenas um proprietário, mas um proprietário
+poderá estar associado a muitos veículos.
+A anotação @ManyToOne indica a multiplicidade do relacionamento entre
+veículo e proprietário
 
 Veiculo * ---> 1 proprietario
+
+Na classe Veiculo adicionar 
+    @ManyToOne
+    @JoinColumn(name = "proprietario_codigo")
+    private Proprietario proprietario;
 
 
 

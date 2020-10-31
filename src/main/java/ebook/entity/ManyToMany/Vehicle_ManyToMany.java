@@ -1,4 +1,4 @@
-package ebook;
+package ebook.entity.ManyToMany;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -7,16 +7,18 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import ebook.entity.ManyToMany.Accessory;
+import ebook.FuelType;
+import ebook.IdVehicle;
+import ebook.Owner;
 
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
@@ -25,9 +27,9 @@ import ebook.entity.ManyToMany.Accessory;
 // que representa uma tabela de banco de dados
 // classe anotada com o @Entity não pode ser final
 
-@Entity
+//@Entity
 @Table(name = "tab_vehicle")
-public class Vehicle{
+public class Vehicle_ManyToMany{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -108,9 +110,11 @@ public class Vehicle{
 	@JoinColumn(name ="cod_owner")*/
 	private Owner owner;
 	
-
+	@ManyToMany
+	private Set<Accessory> accessory = new HashSet<>();
 	
-	public Vehicle() {}
+	
+	public Vehicle_ManyToMany() {}
 	
 	public IdVehicle getCode() {
 		return code;
@@ -202,7 +206,7 @@ public class Vehicle{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle other = (Vehicle) obj;
+		Vehicle_ManyToMany other = (Vehicle_ManyToMany) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

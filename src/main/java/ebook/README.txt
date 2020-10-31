@@ -92,9 +92,27 @@ Na classe Veiculo adicionar
     @ManyToOne
     @JoinColumn(name = "proprietario_codigo")
     private Proprietario proprietario;
+ Caso queira se fazer a associação bidirecional mapear um atributo na 
+ entidade owner com - @OneToMany.
+ 
+    
+ Mapeamento um-para-muitos
+ conhecido como @OneToMany
+ deve ser utilizada para mapear coleções
+
+Veiculo * --->1 proprietario
+
+na classe proprietario adicionar
+	@OneToMany(mappedBy = "proprietario")
+	private List<Veiculo> veiculos;
 
 
+Mapemento muitos-para-muitos
+conhecido como many-to-many
 
+Veiculo* ----- * Acessorio
 
+*relacionamentos muito-para-muitos necessitam de tabela associativa
+o jpa possui um recursso de schema generation que poderá recriar as tabelas automaticamente.
 
 

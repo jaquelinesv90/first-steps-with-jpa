@@ -114,5 +114,9 @@ Veiculo* ----- * Acessorio
 
 *relacionamentos muito-para-muitos necessitam de tabela associativa
 o jpa possui um recursso de schema generation que poderá recriar as tabelas automaticamente.
+*um mapeamento com @ManyToMany cria tabela de associação com os nomes das entidades relacionadas,
+separados por underscore, com as colunas com nomes também gerados automaticamente.
+*o anotação @JoinTable podemos customizar o nome da tabela de associação e das colunas
+
 
 

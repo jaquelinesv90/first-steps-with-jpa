@@ -9,12 +9,14 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.JoinColumn;
 
 import ebook.FuelType;
 import ebook.IdVehicle;
@@ -110,7 +112,20 @@ public class Vehicle_ManyToMany{
 	@JoinColumn(name ="cod_owner")*/
 	private Owner owner;
 	
+	
+	/*Ao criar relacionamento a anotação @JoinColumn exibe erro 
+	 * “JoinColumn cannot be resolved to a type” basta apenas adicionar:
+	 * import javax.persistence.JoinColumn;
+	 * o nome digitado na opção name = "accessory_vehicle" é o nome da
+	 * tabela de associação 
+	 * 
+	 * inverseJoinColumns - é a coluna que referencia a tabela de acessorios
+	 * como lado inverso
+	 */
 	@ManyToMany
+	@JoinTable(name = "accessory_vehicle",
+			joinColumns = @JoinColumn(name = "code_vehicle"),
+			inverseJoinColumns = @JoinColumn(name = "code_accessory"))
 	private Set<Accessory> accessory = new HashSet<>();
 	
 	
@@ -185,9 +200,14 @@ public class Vehicle_ManyToMany{
 	public Owner getOwner() {
 		return owner;
 	}
-
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+	public Set<Accessory> getAccessory() {
+		return accessory;
+	}
+	public void setAccessory(Set<Accessory> accessory) {
+		this.accessory = accessory;
 	}
 
 	//evitar elementos duplicados

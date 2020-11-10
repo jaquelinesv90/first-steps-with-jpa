@@ -1,15 +1,13 @@
-package ebook.entity.OneToOnebidirectional;
+package ebook.entity.OneToOne_unidirectional;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 
-@Entity
-public class Owner_OneToOneMapping_Bidirectional {
+//@Entity
+public class Owner_OneToOneMapping_Unidirectional {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,17 +21,8 @@ public class Owner_OneToOneMapping_Bidirectional {
 	
 	@Column
 	private String email;
-	
-	/* Campo não obrigatório - o mapeamento pode ser
-	 * unidirecional.
-	 * Ao adicionar este campo e a anotação fazemos a
-	 * associação um-para-um bidirecional e então conseguimos
-	 * obter o veículo a partir de um proprietário.*/
-	@OneToOne(mappedBy = "owner")
-	private Vehicle_OneToOneMapping_Bidirectional vehicle;
-	
 
-	public Owner_OneToOneMapping_Bidirectional() {}
+	public Owner_OneToOneMapping_Unidirectional() {}
 
 
 	public Long getCode() {
@@ -66,14 +55,6 @@ public class Owner_OneToOneMapping_Bidirectional {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Vehicle_OneToOneMapping_Bidirectional getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle_OneToOneMapping_Bidirectional vehicle) {
-		this.vehicle = vehicle;
 	}
 	
 }

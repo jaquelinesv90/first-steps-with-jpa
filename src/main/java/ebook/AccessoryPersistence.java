@@ -3,8 +3,8 @@ package ebook;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ebook.entity.ManyToMany.Accessory;
-import ebook.entity.ManyToMany.Vehicle_ManyToMany;
+import ebook.entity.ManyToMany_unidirectional.Accessory;
+import ebook.entity.ManyToMany_unidirectional.Vehicle_ManyToMany;
 
 public class AccessoryPersistence {
 

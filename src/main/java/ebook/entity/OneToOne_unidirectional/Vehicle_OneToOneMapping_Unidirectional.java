@@ -1,26 +1,22 @@
-package ebook.entity.ManyToMany;
+package ebook.entity.OneToOne_unidirectional;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.persistence.JoinColumn;
 
 import ebook.FuelType;
 import ebook.IdVehicle;
-import ebook.Owner;
 
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.
@@ -29,9 +25,10 @@ import ebook.Owner;
 // que representa uma tabela de banco de dados
 // classe anotada com o @Entity não pode ser final
 
+// exemplo do mapeamento OneToOne 
 //@Entity
 @Table(name = "tab_vehicle")
-public class Vehicle_ManyToMany{
+public class Vehicle_OneToOneMapping_Unidirectional{
 	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -103,111 +100,112 @@ public class Vehicle_ManyToMany{
 	 veículo, incluindo o atributo optional com valor false na anotação
 	 @OneToOne, desta forma, se tentarmos persistir um veículo sem
 	 proprietário, uma exceção é lançada.
-	 A associação é unidirecional, ou sejam podemos obter o proprietário
+	 Quando a associação é unidirecional,podemos obter o proprietário
 	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
 	 de um proprietário - para torna-lá bidirecional é necessário criar 
-	 o atributo veículo na classe - proprietario.
-	 
-	@OneToOne(optional = false)
-	@JoinColumn(name ="cod_owner")*/
-	private Owner owner;
+	 o atributo veículo na classe - proprietario.*/
+	@OneToOne
+	@JoinColumn(name = "cod_proprietario")
+	private Owner_OneToOneMapping_Unidirectional owner;
 	
 	
-	/*Ao criar relacionamento a anotação @JoinColumn exibe erro 
-	 * “JoinColumn cannot be resolved to a type” basta apenas adicionar:
-	 * import javax.persistence.JoinColumn;
-	 * o nome digitado na opção name = "accessory_vehicle" é o nome da
-	 * tabela de associação 
-	 * 
-	 * inverseJoinColumns - é a coluna que referencia a tabela de acessorios
-	 * como lado inverso
-	 */
-	@ManyToMany
-	@JoinTable(name = "accessory_vehicle",
-			joinColumns = @JoinColumn(name = "code_vehicle"),
-			inverseJoinColumns = @JoinColumn(name = "code_accessory"))
-	private Set<Accessory> accessory = new HashSet<>();
+	public Vehicle_OneToOneMapping_Unidirectional() {}
 	
-	
-	public Vehicle_ManyToMany() {}
-	
+
 	public IdVehicle getCode() {
 		return code;
 	}
+
 	public void setCode(IdVehicle code) {
 		this.code = code;
 	}
+
 	public String getManufacturer() {
 		return manufacturer;
 	}
+
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+
 	public String getModel() {
 		return model;
 	}
+
 	public void setModel(String model) {
 		this.model = model;
 	}
+
 	public Integer getYearManufacture() {
 		return yearManufacture;
 	}
+
 	public void setYearManufacture(Integer yearManufacture) {
 		this.yearManufacture = yearManufacture;
 	}
+
 	public Integer getModelYear() {
 		return modelYear;
 	}
+
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
 	}
+
 	public BigDecimal getValue() {
 		return value;
 	}
+
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
+
 	public FuelType getFuelType() {
 		return fuelType;
 	}
+
 	public void setFuelType(FuelType fuelType) {
 		this.fuelType = fuelType;
 	}
+
 	public Date getDateRegister() {
 		return dateRegister;
 	}
+
 	public void setDateRegister(Date dateRegister) {
 		this.dateRegister = dateRegister;
 	}
+
 	public String getFullDescription() {
 		return fullDescription;
 	}
+
 	public void setFullDescription(String fullDescription) {
 		this.fullDescription = fullDescription;
 	}
+
 	public String getEspecification() {
 		return especification;
 	}
+
 	public void setEspecification(String especification) {
 		this.especification = especification;
 	}
+
 	public byte[] getPhoto() {
 		return photo;
 	}
+
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-	public Owner getOwner() {
+
+	public Owner_OneToOneMapping_Unidirectional getOwner() {
 		return owner;
 	}
-	public void setOwner(Owner owner) {
+
+	public void setOwner(Owner_OneToOneMapping_Unidirectional owner) {
 		this.owner = owner;
-	}
-	public Set<Accessory> getAccessory() {
-		return accessory;
-	}
-	public void setAccessory(Set<Accessory> accessory) {
-		this.accessory = accessory;
 	}
 
 	//evitar elementos duplicados
@@ -226,7 +224,7 @@ public class Vehicle_ManyToMany{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vehicle_ManyToMany other = (Vehicle_ManyToMany) obj;
+		Vehicle_OneToOneMapping_Unidirectional other = (Vehicle_OneToOneMapping_Unidirectional) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

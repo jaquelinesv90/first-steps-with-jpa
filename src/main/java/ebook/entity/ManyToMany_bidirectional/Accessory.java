@@ -1,11 +1,17 @@
-package ebook.entity.ManyToMany;
+package ebook.entity.ManyToMany_bidirectional;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import ebook.Vehicle;
 
 /* classe que representa todos os acessórios que 
  * um carro pode ter.
@@ -14,7 +20,7 @@ import javax.persistence.Table;
  * 
  */
 
-@Entity
+//@Entity
 @Table(name = "accessory")
 public class Accessory {
 	
@@ -24,6 +30,9 @@ public class Accessory {
 	
 	@Column(length = 60, nullable = false)
 	private String description;
+	
+	@ManyToMany(mappedBy = "accessory")
+	private Set<Vehicle> vehicle = new HashSet<>();
 
 	public Accessory() {}
 	

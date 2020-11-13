@@ -1,6 +1,11 @@
 package ebook;
 
+import java.util.List;
+
+import javax.persistence.*;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +24,17 @@ public class Owner {
 	@Column
 	private String name_owner;
 	
-	@Column
-	private String telephone_owner;
+	/*@ElementCollection : cria relacionamentos da nossa entidade com
+	 * outros tipos que não são entidades. tipos simples como String 
+	 * 
+	 * @CollectionTable
+	 */
+	
+	@ElementCollection
+	@CollectionTable(name = "owner_phone",
+			joinColumns = @JoinColumn(name = "owner_code"))
+	@Column(name = "phone_number", length = 20, nullable = false)
+	private List<String> telephone_owner;
 	
 	@Column
 	private String email;
@@ -45,14 +59,6 @@ public class Owner {
 		this.name_owner = name_owner;
 	}
 
-	public String getTelephone_owner() {
-		return telephone_owner;
-	}
-
-	public void setTelephone_owner(String telephone_owner) {
-		this.telephone_owner = telephone_owner;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -60,4 +66,21 @@ public class Owner {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Long getCode() {
+		return code;
+	}
+
+	public void setCode(Long code) {
+		this.code = code;
+	}
+
+	public List<String> getTelephone_owner() {
+		return telephone_owner;
+	}
+
+	public void setTelephone_owner(List<String> telephone_owner) {
+		this.telephone_owner = telephone_owner;
+	}
+	
 }

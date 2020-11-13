@@ -108,8 +108,6 @@ public class Vehicle{
 	@JoinColumn(name ="cod_owner")*/
 	private Owner owner;
 	
-
-	
 	public Vehicle() {}
 	
 	public IdVehicle getCode() {

@@ -16,7 +16,8 @@ public class OwnerPersistence_ {
 		
 		Owner owner = new Owner();
 		owner.setName_owner("Jurandir");
-		owner.setTelephone_owner("(34) 1234-5678");
+		owner.getTelephone_owner().add("(34) 1234-5678");
+		owner.getTelephone_owner().add("(11) 7777-0764");
 		
 		manager.persist(owner);
 		

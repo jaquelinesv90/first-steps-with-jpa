@@ -24,16 +24,26 @@ public class Owner {
 	@Column
 	private String name_owner;
 	
-	/*@ElementCollection : cria relacionamentos da nossa entidade com
+	/* @ElementCollection : cria relacionamentos da nossa entidade com
 	 * outros tipos que não são entidades. tipos simples como String 
 	 * 
-	 * @CollectionTable
+	 * @CollectionTable :
+	 * 
+	 * @AttributeOverrides : 
+	 * 
+	 * 
+	 * @AttributeOverride : 
+	 * 
 	 */
 	
 	@ElementCollection
 	@CollectionTable(name = "owner_phone",
 			joinColumns = @JoinColumn(name = "owner_code"))
-	@Column(name = "phone_number", length = 20, nullable = false)
+	@AttributeOverrides({
+		@AttributeOverride(name="number",
+				column = @Column(name = "phone_number", length = 20, 
+				nullable = false))
+	})
 	private List<String> telephone_owner;
 	
 	@Column

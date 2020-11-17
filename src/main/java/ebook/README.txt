@@ -120,3 +120,21 @@ separados por underscore, com as colunas com nomes também gerados automaticamen
 
 
 
+
+Herança
+Utilize este recurso com moderação, mutias vezes é melhor mapear usando associações do que
+herança.
+A JPA define 3 formas de se fazer o mapeamento de herança:
+ - Tabela única para todas as classes(single table)
+ - Uma tabela para cada classe da hierarquia(joined)
+ - Uma tabela para cada classe concreta(table per class)
+ 
+ Tabela única para todas as classes(single table)
+ primeira estratégia é a melhor em termos de performance e simplicidade, porém seu maior problema 
+ é que as colunas das propriedades declaradas nas classes filhas precisam aceitar valores nulos.
+ A falta da constraint NOT NULL pode ser um problema sério no ponto de vista de integridade de 
+ dados.
+ 
+
+
+

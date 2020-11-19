@@ -10,6 +10,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+/* 		A estratégia de heraça definida foi SINGLE_TABLE com a
+ * anotação @Inheritance.Esse tipo de herança é padrão,ou seja,
+ * não precisaríamos anotar a classe com @Inheritance.
+ * 		A anotação @DiscriminatorColumn foi usada para informar o 
+ * nome de coluna de controle para discriminar de qual classe 
+ * é o registro.
+ */
+
 @Entity
 @Table(name = "person")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

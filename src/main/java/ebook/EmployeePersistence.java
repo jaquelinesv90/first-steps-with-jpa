@@ -1,9 +1,9 @@
+package ebook;
 import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ebook.JpaUtil;
 import ebook.inheritance.Cliente;
 import ebook.inheritance.Employee;
 

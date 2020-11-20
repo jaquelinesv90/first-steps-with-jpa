@@ -6,6 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+/* As subclasses foram anotadas com @DiscriminatorValue
+ * para definir o valor discriminador de cada tipo
+ * 
+ * 
+ * 
+ */
 @Entity
 @DiscriminatorValue("C")
 public class Cliente extends Person {
@@ -19,8 +25,6 @@ public class Cliente extends Person {
 	@Column(nullable = true)
 	private boolean blocked;
 
-	
-	
 	
 	public BigDecimal getCreditLimit() {
 		return creditLimit;

@@ -6,6 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+/* @DiscriminatorValue para definir o valor discriminador de cada tipo
+ * só pode ser utilizado em classes concretas(classes da qual podemos 
+ * criar instancia, usando a palavra chave new)
+ */
+
 @Entity
 @DiscriminatorValue("F")
 public class Employee extends Person{

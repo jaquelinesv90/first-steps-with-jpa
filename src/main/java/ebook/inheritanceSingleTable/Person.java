@@ -1,4 +1,4 @@
-package ebook.inheritance;
+package ebook.inheritanceSingleTable;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;

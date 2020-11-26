@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ebook.inheritance.Cliente;
-import ebook.inheritance.Employee;
+import ebook.inheritanceSingleTable.Cliente;
+import ebook.inheritanceSingleTable.Employee;
 
 public class ClienteEmployeePersistence {
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ebook.inheritance.Person;
+import ebook.inheritanceSingleTable.Person;
 
 public class PersonSearching {
 	

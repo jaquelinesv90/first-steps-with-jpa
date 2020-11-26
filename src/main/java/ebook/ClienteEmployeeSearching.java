@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import ebook.inheritance.Cliente;
-import ebook.inheritance.Person;
+import ebook.inheritanceSingleTable.Cliente;
+import ebook.inheritanceSingleTable.Person;
 
 public class ClienteEmployeeSearching {
 	

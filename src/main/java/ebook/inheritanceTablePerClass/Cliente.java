@@ -1,4 +1,4 @@
-package ebook.inheritance;
+package ebook.inheritanceTablePerClass;
 
 import java.math.BigDecimal;
 
@@ -12,7 +12,7 @@ import javax.persistence.Entity;
  * 
  * 
  */
-@Entity
+//@Entity
 @DiscriminatorValue("C")
 public class Cliente extends Person {
 	

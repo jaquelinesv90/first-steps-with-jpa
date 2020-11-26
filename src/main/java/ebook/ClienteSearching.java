@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ebook.inheritance.Cliente;
+import ebook.inheritanceSingleTable.Cliente;
 
 public class ClienteSearching {
 	

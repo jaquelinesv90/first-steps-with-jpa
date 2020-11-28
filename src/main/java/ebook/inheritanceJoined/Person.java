@@ -1,8 +1,7 @@
-package ebook.inheritanceTablePerClass;
+package ebook.inheritanceJoined;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,16 +9,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-/* essa estratégia é ter tabelas apenas para classes 
- * concretas(subclasses).Cada tabela deve possuir todas 
- * as colunas, incluindo as da superclasse.
- * 
- * 		
+/* 	A estratégia de heraça definida foi JOINED com a
+ * anotação @Inheritance.
  */
 
 //@Entity
 @Table(name = "person")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "type")
 public abstract class Person {
 	
 	@Id

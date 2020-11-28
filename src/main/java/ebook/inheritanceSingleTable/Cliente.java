@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 /* As subclasses foram anotadas com @DiscriminatorValue
  * para definir o valor discriminador de cada tipo
  * 
- * 
+ * ("C") Identifica que a classe Employee será identificada com o 
+ * atributo "C" na tabela Cliente, ou seja onde constar "C" é porque
+ * aquele registro é um cliente
  * 
  */
 @Entity

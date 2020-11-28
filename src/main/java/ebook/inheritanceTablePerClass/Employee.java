@@ -9,16 +9,13 @@ import javax.persistence.Entity;
 /* @DiscriminatorValue para definir o valor discriminador de cada tipo
  * só pode ser utilizado em classes concretas(classes da qual podemos 
  * criar instancia, usando a palavra chave new)
- * 
- * Adicionado a anotação @PrimaryKeyJoinColumn para informar o nome
- * da coluna que faz referencia a tablea pai, ou seja o identificador
- * Person.Se o nome dessa coluna for igual ao nome da coluna da tabela 
- * pai, essa anotação não precisa ser utilizada.
- * 
+ * ("E") Identifica que a classe Employee será identificada com o 
+ * atributo "E" na tabela Employee, ou seja onde constar "E" é porque
+ * aquele registro é um employee
  */
 
 //@Entity
-@DiscriminatorValue("F")
+@DiscriminatorValue("E")
 public class Employee extends Person{
 	
 	@Column(nullable = true)

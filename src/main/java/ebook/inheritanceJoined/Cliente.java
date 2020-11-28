@@ -1,21 +1,24 @@
-package ebook.inheritanceTablePerClass;
+package ebook.inheritanceJoined;
 
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-/* As subclasses foram anotadas com @DiscriminatorValue
- * para definir o valor discriminador de cada tipo
+/* 
+ *  Adicionado a anotação @PrimaryKeyJoinColumn para informar o nome
+ * da coluna que faz referencia a tabela pai, ou seja o identificador
+ * Person.Se o nome dessa coluna for igual ao nome da coluna da tabela 
+ * pai, essa anotação não precisa ser utilizada.
  * 
- * ("C") Identifica que a classe Employee será identificada com o 
- * atributo "C" na tabela Cliente, ou seja onde constar "C" é porque
- * aquele registro é um cliente
- * 
+ * A persistencia da classe fica da mesma forma,não muda
  */
 //@Entity
-@DiscriminatorValue("C")
+@Table(name = "cliente")
+@PrimaryKeyJoinColumn(name = "code_person")
 public class Cliente extends Person {
 	
 	@Column(name = "credit_limit", nullable = true)

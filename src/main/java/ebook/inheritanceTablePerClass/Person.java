@@ -1,19 +1,25 @@
 package ebook.inheritanceTablePerClass;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 /* essa estratégia é ter tabelas apenas para classes 
  * concretas(subclasses).Cada tabela deve possuir todas 
  * as colunas, incluindo as da superclasse.
  * 
+ * mudamos a estratégia de geração de identificadores 
+ *  "increment", que a implementação do Hibernate disponibiliza(
+ *  não é padronizada pelo JPA).Não podemos usar a geração 
+ *  automática de chaves nativa do banco de dados.
+ *  
+ *  Também não precisamos mais da anotação @PrimaryKeyJoinColumn.
+ *  Pode removê-la das entidades Cliente e Funcionario.
  * 		
  */
 
@@ -23,7 +29,8 @@ import javax.persistence.Table;
 public abstract class Person {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "inc")
+	@GenericGenerator(name = "inc", strategy = "increment")
 	private Long code;
 	
 	@Column(length = 100, nullable = false)

@@ -9,11 +9,14 @@ import javax.persistence.MappedSuperclass;
 /* Pode ser útil em algumas situações compartilhar 
  * propriedades através de uma superclasse, sem 
  * considerá-la como uma entidade mapeada.
- * 		
+ * 
+ * As subclasses são mapeadas normalmente,sem nada
+ * especial.Continuam somente com @Entity e @Table
+ * 
  * Com esse tipo de mapeamento não é uma estratégia de
  * herança da JPA, não conseguimos fazer uma consulta 
  * polimórfica.
- * 
+ *
  */
 
 @MappedSuperclass

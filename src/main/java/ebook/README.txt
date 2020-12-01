@@ -146,3 +146,19 @@ A JPA define 4 formas de se fazer o mapeamento de herança:
 
  *Superclass
 
+
+Modos de acesso
+O estado das entidades precisam ser acessíveis em tempo de execução pelo provedor JPA, para
+poder ler e alterar os valores e sincronizar com o banco de dados.
+Existem duas formas de acesso ao estado de uma entidade: field access e property access.
+
+Os métodos getters e setters não são obrigatórios neste caso, mas caso eles existam, serão
+ignorados pelo provedor JPA.
+É recomendado que os atributos tenham o modificador de acesso protegido, privado ou padrão.
+O modificador público não é recomendado, pois expõe demais os atributos para qualquer outra 
+classe.
+
+
+
+
+

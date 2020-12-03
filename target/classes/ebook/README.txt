@@ -158,6 +158,9 @@ ignorados pelo provedor JPA.
 O modificador público não é recomendado, pois expõe demais os atributos para qualquer outra 
 classe.
 
+Lazy loading
+Podemos definir a estratégia de carregamento de relacionamentos de entidades, podendo ser 
+lazy(tardia) ou eager(ansiosa).
 
 
 

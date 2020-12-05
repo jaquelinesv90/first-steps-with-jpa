@@ -2,6 +2,7 @@ package ebook.lazyLoading;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,16 @@ public class Product {
 	@Column(length = 60)
 	private String name;
 	
-	@ManyToOne(optional = false)
+	/*Antes de adicionar o carregamento lazy,note que a query SQL fez um 
+	 * join na tabela categoria, pois um produto possui uma categoria, 
+	 * mas nós não usamos informações dessa entidade em momento algum.
+	 * Neste caso, as informações da categoria do produto foram carregadas
+	 * ansiosamente, mas não foram usadas.
+	 * 
+	 * Adicionamos a estratégia de carregamento para lazy no mapeamento
+	 * da associação de produto com categoria.
+	 */
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private Category category;
 
 	

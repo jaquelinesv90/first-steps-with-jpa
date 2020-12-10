@@ -28,6 +28,8 @@ public class CarPersistence {
 		
 		tx.commit();
 		//fechando o EntityManager e o EntityManagerFactory
+		//quando fechamos o EntityManager, todas as instancias se 
+		//tornam detached
 		manager.close();
 		JpaUtil.close();
 		

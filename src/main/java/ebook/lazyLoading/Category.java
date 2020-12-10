@@ -21,6 +21,10 @@ public class Category {
 	@Column(length = 60)
 	private String name;
 	
+	/*
+	 * a parte do relacionamento em que usamos
+	 * o atributo mappedBy é a parte non-owner
+	 */
 	@OneToMany(mappedBy = "category")
 	private List<Product> products;
 	

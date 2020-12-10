@@ -33,6 +33,18 @@ public class Product {
 	 * 
 	 * Adicionamos a estratégia de carregamento para lazy no mapeamento
 	 * da associação de produto com categoria.
+	 * 
+	 * Após adicionar FetchType.LAZY o provedor JPA não buscou as 
+	 * informações de categoria, pois o carregamento passou a ser
+	 * tardio, ou seja, apenas se for necessário que uma consulta
+	 * SQL separada será executada.
+	 * 
+	 * O comportamento de carregamento tardio é chamado de lazy loading
+	 * e é util para evitar consultas desnecessárias, na maioria dos casos.
+	 * 
+	 * Quando usamos lazy loading precisamos tomar cuidado com o estado da
+	 * entidade no ciclo de vida.Se tivermos uma instancia detached, não 
+	 * conseguiremos obter um relacionamento lazy ainda não carregado.
 	 */
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private Category category;

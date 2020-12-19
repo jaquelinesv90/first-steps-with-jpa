@@ -162,6 +162,24 @@ Lazy loading
 Podemos definir a estratégia de carregamento de relacionamentos de entidades, podendo ser 
 lazy(tardia) ou eager(ansiosa).
 
+Operações em cascata.
+As operações chamadas nos EntityManagers são aplicadas na entidade informada como parâmetro,
+por padrão.
+
+Persistência em cascata.
+Em diversas situações, quando persistimos uma entidade, queremos também que seus relacionamentos
+sejam persistidos.A JPA fornece um mecanismo para facilitar a persistência de entidades e seus
+relacionamentos transientes, sempre que o método persist for chamado.Esse recurso se chama cascade.
+Para configurá-lo, basta adicionar uma propriedade cascade na anotação de relacionamento e definir o 
+valor CascadeType.PERSIST.
+
+@ManyToOne(optinal = false, cascade = CascadeType.PERSIST)
+private Categoria categoria;
+
+Desta forma ao persistir um produto a categoria será persistida também automaticamente.
+As operações do EntityManager são identificadas pela enumeração CascadeType com as 
+constantes PERSIST,REFRESH,REMOVE,MERGE, DETACH.
+
 
 
 

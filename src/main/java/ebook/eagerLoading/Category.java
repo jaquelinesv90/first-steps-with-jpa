@@ -16,6 +16,8 @@ import javax.persistence.Table;
  * do relacionamento, mas também pode ser ruim, se na maioria das vezes as informações 
  * desse relacionamento não forem necesárias e mesmo assim consultadas por causa do 
  * eager loading.
+ * Saber escolher a melhor estratégia é muito importante para uma boa performance
+ * do software que está sendo desenvolvido.
  */
 
 //@Entity

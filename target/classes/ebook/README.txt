@@ -178,7 +178,7 @@ private Categoria categoria;
 
 Desta forma ao persistir um produto a categoria será persistida também automaticamente.
 As operações do EntityManager são identificadas pela enumeração CascadeType com as 
-constantes PERSIST,REFRESH,REMOVE,MERGE, DETACH.
+constantes PERSIST,REFRESH,REMOVE,MERGE, DETACH, ALL.
 
 
 

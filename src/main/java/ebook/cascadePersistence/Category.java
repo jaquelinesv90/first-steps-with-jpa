@@ -2,6 +2,7 @@ package ebook.cascadePersistence;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,14 @@ public class Category {
 	@Column(length = 60)
 	private String name;
 	
-	@OneToMany(mappedBy = "category")
+	/*configuração de cascata no relacionamento, caso o cascadeType.REMOVE
+	 * é necessário para que seja excluído a categoria e o produto associado 
+	 * a ela.caso também não seja adicionada o JPA tentará remover apenas a categoria,
+	 * e gerará erro de violação de integridade de banco.
+	 * 
+	 */
+	@OneToMany(mappedBy = "category", 
+			cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Product> products;
 	
 	

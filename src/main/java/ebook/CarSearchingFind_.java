@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 
 //classe de exemplo de pesquisa, utilizando a
 //anotação @EmbeddedId
-public class CarSearchinFind_ {
+public class CarSearchingFind_ {
 	
 	public static void main(String[] args) {
 		EntityManager manager = JpaUtil.getEntityManager();

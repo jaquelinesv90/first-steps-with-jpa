@@ -28,6 +28,12 @@ public class Product {
 	/*
 	 * Quando persistimos um produto, a categoria será persistida também 
 	 * automaticamente
+	 * 
+	 * As operações do EntityManager são identificadas pela enumeração CascadeType
+	 * com as constantes PERSIST,REFRESH,REMOVE,MERGE E DETACH
+	 * A constante ALL é um atalho para declarar que todas as operações devem ser 
+	 * em cascata.
+	 * 
 	 */
 	@ManyToOne(optional = false, cascade = CascadeType.PERSIST)
 	private Category category;

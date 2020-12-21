@@ -5,11 +5,7 @@ import javax.persistence.EntityTransaction;
 
 import ebook.JpaUtil;
 
-/* Para o cascading funcionar é necessário adicionar nos dois lados
- * do relacionamento.
- * 
- */
-public class CascadePersistence {
+public class CascadeExclusion {
 	
 	public static void main(String[] args) {
 		
@@ -17,17 +13,13 @@ public class CascadePersistence {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		
-		Category category = new Category();
-		category.setName("clothes");
-		
-		Product product = new Product();
-		product.setName("t-shirt");
-		product.setCategory(category);
-		
-		manager.persist(product);
+		Category category = manager.find(Category.class, 1L);
+		manager.remove(category);
 		
 		tx.commit();
 		manager.close();
 		JpaUtil.close();
+	
 	}
+
 }

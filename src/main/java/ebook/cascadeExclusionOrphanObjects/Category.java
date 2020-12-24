@@ -26,7 +26,9 @@ public class Category {
 	 * parâmetro para o método remove, mas se o vínculo entre duas entidades 
 	 * for desfeito sem que haja uma exclusão de entidade o objeto ficará orfão.
 	 * Podemos configurar a remoção de orfãoes incluindo a propriedade
-	 * orphanRemoval
+	 * orphanRemoval.
+	 * caso um registro fique órfão de categoria, ele será excluído automaticamente
+	 * do banco de dados.
 	 * 
 	 */
 	@OneToMany(mappedBy = "category", cascade = CascadeType.PERSIST,

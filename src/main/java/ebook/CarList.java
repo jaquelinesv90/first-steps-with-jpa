@@ -5,10 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-// Consulta utilizando JPQL
-// Jpql é uma extensãp da Sql, porém com características
-// da orientação a objetos,com essa linguagem não referenciamos
-// tabelas do banco de dados,apenas entidades de nosso modelo.
+/*
+ * Consulta utilizando JPQL
+ * Jpql é uma extensãp da Sql, porém com características
+ * da orientação a objetos,com essa linguagem não referenciamos
+ * tabelas do banco de dados,apenas entidades de nosso modelo.
+*/ 
 public class CarList {
 	
 	public static void main(String[] args) {

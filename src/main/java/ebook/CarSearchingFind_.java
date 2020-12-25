@@ -20,5 +20,4 @@ public class CarSearchingFind_ {
 		JpaUtil.close();
 		
 	}
-
 }

@@ -5,8 +5,9 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-// classe de exemplo de persistencia, utilizando a
-// anotação @EmbeddedId
+/* classe de exemplo de persistencia, utilizando a
+* anotação @EmbeddedId
+*/ 
 public class CarPersistence_ {
 	
 	public static void main(String[] args) {

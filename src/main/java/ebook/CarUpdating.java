@@ -5,9 +5,11 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-//O codigo busca o veículo de valor 1
-// A alteração foi identificada automaticamente e 
-// refletida no banco através do comando update
+/*
+ *  O codigo busca o veículo de valor 1
+ * A alteração foi identificada automaticamente e 
+ * refletida no banco através do comando update
+ */
 public class CarUpdating {
 	
 	public static void main(String[] args) {
@@ -22,10 +24,11 @@ public class CarUpdating {
 		vehicle.setValue(vehicle.getValue().add(new BigDecimal(500)));
 		System.out.println("new value:" + vehicle.getValue());
 		
-		//os estados de entidades são sincronizados com o banco quando
-		// ocorre o commit da transação associada.
-		//o update é executado apenas no final da execução,
-		//exatamente durante o commit da transação
+		/*os estados de entidades são sincronizados com o banco quando
+		* ocorre o commit da transação associada.
+		*o update é executado apenas no final da execução,
+		*exatamente durante o commit da transação
+		*/
 		tx.commit();
 		manager.close();
 		JpaUtil.close();

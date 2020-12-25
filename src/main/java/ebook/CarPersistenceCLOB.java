@@ -37,20 +37,12 @@ public class CarPersistenceCLOB {
 		
 		manager.detach(vehicle);
 		
-		
 		Vehicle vehicle2 = manager.find(Vehicle.class, vehicle.getCode());
 		System.out.println("Veículo:" + vehicle2.getModel());
 		System.out.println("---------");
 		System.out.println(vehicle2.getEspecification());
 		
 		manager.close();
-		JpaUtil.close();
-		
-		
+		JpaUtil.close();	
 	}
-	
-	
-	
-	
-
 }

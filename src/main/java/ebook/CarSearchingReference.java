@@ -2,9 +2,10 @@ package ebook;
 
 import javax.persistence.EntityManager;
 
-// o método getReference só executa o Sql quando o objeto
-// for usado pela primeira vez, ou seja quando invocamos um 
-// método getter da instância, desde que não seja o getCodigo
+/* o método getReference só executa o Sql quando o objeto
+ * for usado pela primeira vez, ou seja quando invocamos um 
+ * método getter da instância, desde que não seja o getCodigo 
+ */
 public class CarSearchingReference {
 	
 	public static void main(String[] args) {

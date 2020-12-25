@@ -21,15 +21,18 @@ public class CarPersistence {
 		vehicle.setModelYear(2020);
 		vehicle.setValue(new BigDecimal(90500));
 		
-		//executamos o método persist, passando a instancia
-		// do veículo como parametro, isso fará com que o
-		// JPA insira o objeto no banco de dados.
+		/*executamos o método persist, passando a instancia
+		* do veículo como parametro, isso fará com que o
+		* JPA insira o objeto no banco de dados.
+		*/
 		manager.persist(vehicle);
 		
 		tx.commit();
-		//fechando o EntityManager e o EntityManagerFactory
-		//quando fechamos o EntityManager, todas as instancias se 
-		//tornam detached
+		/*
+		 * fechando o EntityManager e o EntityManagerFactory
+		 * quando fechamos o EntityManager, todas as instancias se 
+		 * tornam detached
+		 */
 		manager.close();
 		JpaUtil.close();
 		

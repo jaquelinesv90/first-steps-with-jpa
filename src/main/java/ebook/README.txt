@@ -181,5 +181,5 @@ As operações do EntityManager são identificadas pela enumeração CascadeType
 constantes PERSIST,REFRESH,REMOVE,MERGE, DETACH, ALL.
 
 
-
+Concorrencia e Locking
 

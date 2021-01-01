@@ -1,16 +1,10 @@
-package ebook.bulkOperations;
+package ebook.pessimisticLocking;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-/*Quando precisamos atualizar ou remover centenas ou milhares de 
- * registros do banco de dados,pode se tornar inviavel fazer isso
- * por objeto.
- * Neste caso podemos usar bulk operations ou operações em lote.
- * Jpa suporta esse tipo de operação através da JPQL.
- */
+import javax.persistence.Version;
 
 //@Entity
 @Table(name = "user")
@@ -24,6 +18,8 @@ public class User {
 	
 	private boolean active;
 	
+	@Version
+	private Long versao;
 
 	public Long getCode() {
 		return code;

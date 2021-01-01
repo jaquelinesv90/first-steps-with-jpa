@@ -1,4 +1,4 @@
-package ebook.BulkOperations;
+package ebook.bulkOperations;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

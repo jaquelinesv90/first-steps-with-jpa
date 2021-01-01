@@ -22,6 +22,10 @@ import javax.persistence.Version;
  * entidade. Precisamos mapear uma propriedade para armazenar a versão da enti-
  * dade, usando a anotação @Version.
  * 
+ * Esse campo deve ser adicionado na coluna de banco de dados, e não será setado
+ * na mão.Cada vez que um novo registro for inserido o Hibernate incrementará o
+ * valor da coluna em 1.
+ * 
  */
 
 //@Entity

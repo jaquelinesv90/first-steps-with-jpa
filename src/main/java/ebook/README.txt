@@ -182,4 +182,19 @@ constantes PERSIST,REFRESH,REMOVE,MERGE, DETACH, ALL.
 
 
 Concorrencia e Locking
+Uma das formas de resolver o problema de concorrencia é usando locking
+otimista.
+	Este tipo de locking tem como filosofia que, dificilmente outro EntityManager
+estará fazendo uma alteração no mesmo objeto ao mesmo tempo, ou seja, é uma
+estrategia otimista que entende que o problema de concorrencia é uma exceção.
+  
+  No momento que uma alteração for sincronizada com o banco de dados, o prov-
+vedor JPA verifica se o objeto foi alterado por outra transação e lança uma
+exceção OptimisticLoclException, caso exista concorrencia.
+ 
+Mas como o provedor JPA sabe se houve uma alteração no objeto?
+ 
+A resposta é que o provedor mantém um controle de versão em um atributo da 
+entidade. Precisamos mapear uma propriedade para armazenar a versão da enti-
+dade, usando a anotação @Version.
 

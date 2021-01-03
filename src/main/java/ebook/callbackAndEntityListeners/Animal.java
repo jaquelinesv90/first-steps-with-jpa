@@ -18,6 +18,8 @@ import javax.persistence.Transient;
  * eventos que acontecem no mecanismo de persistencia, ex: durante o
  * carregamento de uma entidade, antes de persistir, depois de persistir.
  * 
+ * Callback são chamadas de métodos antes e depois de insert/update
+ * 
  * A especificação JPA fornece duas formas para fazer isso: métodos de 
  * callback e auditores de entidades, também conhecidos como callback
  * methods e entity listeners.
@@ -43,10 +45,13 @@ public class Animal {
 	@Column(name = "date_last_birthday", nullable = false)
 	private LocalDateTime dateLastUpdate;
 	
-	@Transient
+	//propriedade não persistida
+	//essa idade será calculada automaticamente nos eventos @PostLoad,@PostPersist
+	//@PostUpdate, através do método calcAge.
+	@Transient  
 	private Integer age;
 	
-	@PostLoad
+	@PostLoad  //
 	@PostPersist
 	@PostUpdate
 	public void calcAge() {

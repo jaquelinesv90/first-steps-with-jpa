@@ -29,7 +29,23 @@ Através do elemento hibernate.javax.cache.provider nós deixamos explícita a c
 a implementação.
 
 Por fim, utilizando o elemento hibernate.javax.cache.uri, podemos informar o caminho para o arquivo de configuração
-do EhCache.O conteúdo dele pode ficar como o abaixo. 
+do EhCache.O conteúdo dele pode ficar como o conteudo da classe ehcache.xml.
+
+Com a configuração, está sendo dito que será permitido armazenar até 1000 objetos na memória e cada objeto tem um tempo
+de vida no cache de 20 segundos.
+
+O elemento shared-cache-mode no persistence.xml aceita alguns valores que configuram o cache de segundo nível.
+
+- ENABLE_SELECTIVE(padrão): as entidades não são armazenadas no cahce, a menos que sejam explicitamente anotadas 
+com @Cacheable(true).
+
+- DISABLE_SELECTIVE: as entidades são armazenadas no cache, a menos que sejam explicitamente anotadas com 
+@Cacheable(false).
+
+- ALL: todas entidades são sempre armazenadas no cache.
+
+- NONE : nenhuma entidade é armazenada no cache(desabilita o cache de segundo nível). 
+ 
 
 
 

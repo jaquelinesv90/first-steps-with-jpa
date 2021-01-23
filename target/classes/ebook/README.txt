@@ -198,3 +198,10 @@ A resposta é que o provedor mantém um controle de versão em um atributo da
 entidade. Precisamos mapear uma propriedade para armazenar a versão da enti-
 dade, usando a anotação @Version.
 
+JPQL
+A JPQL(Java Persistence Query Language) é a linguagem de consulta padrão da JPA,
+que permite escrever consultas portáveis, que funcionam independente do SGBD.
+
+Essa linguagem de query usa uma sintaxe parecida com a SQL para selecionar objetos e
+valores de entidades e os relacionamentos entre elas.
+

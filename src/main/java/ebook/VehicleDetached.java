@@ -12,7 +12,7 @@ As alterações em objetos desanexados não são sincronizadas com o banco de da
 quando eles são expostos para alteração através de páginas web e apenas em um segundo momento o usuário solicita a 
 gravação das alterações do objeto.
 */
-public class CarDetached {
+public class VehicleDetached {
 	
 	public static void main(String[] args) {
 		

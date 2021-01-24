@@ -11,7 +11,7 @@ import javax.persistence.Query;
  * da orientação a objetos,com essa linguagem não referenciamos
  * tabelas do banco de dados,apenas entidades de nosso modelo.
 */ 
-public class CarList {
+public class VehicleList {
 	
 	public static void main(String[] args) {
 		EntityManager manager = JpaUtil.getEntityManager();

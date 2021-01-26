@@ -1,4 +1,4 @@
-package ebook.jpql;
+package ebook.jpql.simpleQuery;
 
 import java.util.List;
 

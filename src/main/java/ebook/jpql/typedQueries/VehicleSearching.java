@@ -12,6 +12,10 @@ import ebook.Vehicle;
  * sem precisar fazer casting dos objetos ou até mesmo conversões não checadas 
  * para coleções genéricas.
  * 
+ * Usamos a interface TypedQuery, que é um subtipo de Query.A diferença é que o
+ * método getResultList já retorna uma lista do tipo que especificamos na criação
+ * da query, no segundo parametro.
+ * 
  */
 public class VehicleSearching {
 
@@ -24,9 +28,8 @@ public class VehicleSearching {
 		List<Vehicle> vehicles = query.getResultList();
 		
 		for(Vehicle obj: vehicles) {
-			Vehicle vehicle = (Vehicle) obj;
 			
-			System.out.println(vehicle.getModel() +" "+ vehicle.getManufacturer());
+			System.out.println(obj.getModel() +" "+ obj.getManufacturer());
 		}
 		
 		manager.close();

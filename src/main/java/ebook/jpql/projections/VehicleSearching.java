@@ -17,7 +17,7 @@ import ebook.Vehicle;
  * Suponhamos que precisamos listar apenas os modelos de veículos que temos armazenados.
  * Somente o modelo.
  * 
- * A consulta abaixo fica acaba gerando outras queries para buscar o proprietário do 
+ * A consulta abaixo acaba gerando outras queries para buscar o proprietário do 
  * veículo.
  * 
  * Projeções são cruciais para o desempenho do seu aplicativo e a capacidade de manutenção 
@@ -38,6 +38,26 @@ public class VehicleSearching {
 		
 		for(Vehicle obj: vehicles) {
 			System.out.println(obj.getModel() +" "+ obj.getManufacturer());
+		}
+		
+		manager.close();
+		JpaUtil.close();
+	}
+	
+	/*Podemos projetar apenas a propriedade da entidade que nos interessa usando a 
+	 * clausula select.
+	 * 
+	 */
+	public static void main2() {
+		EntityManager manager = JpaUtil.getEntityManager();
+		
+		TypedQuery<String> query = manager.createQuery(
+				"select model from Vehicle ", String.class);
+		
+		List<String> vehicles = query.getResultList();
+		
+		for(String obj: vehicles) {
+			System.out.println(obj);
 		}
 		
 		manager.close();

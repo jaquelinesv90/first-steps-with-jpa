@@ -1,15 +1,12 @@
 package ebook.jpql.join;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import ebook.JpaUtil;
 import ebook.Owner;
-import ebook.Vehicle;
 
 /* Inner join entre entidades
  * Se um proprietário possuir dois ou mais veículos, ele repetirá no resultado da consulta,

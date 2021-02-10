@@ -9,6 +9,12 @@ import ebook.JpaUtil;
 
 /* Neste exemplo consultamos a quantidade de veículos que cada proprietário possui.
  * Usamos a função de agregação count e a clausula group by.
+ * 
+ *  select o.nome, count(v)
+ *  from Owner o
+ *  left join o.vehicle v
+ *  group by o.name_owner
+ *  
  */
 public class LeftJoin {
 

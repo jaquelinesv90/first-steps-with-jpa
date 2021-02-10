@@ -2,8 +2,6 @@ package ebook;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -15,8 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
-import ebook.entity.ManyToMany_unidirectional.Accessory;
 
 //todas as anotações padronizadas pela JPA ficam 
 // dentro do pacote javax.persistence.

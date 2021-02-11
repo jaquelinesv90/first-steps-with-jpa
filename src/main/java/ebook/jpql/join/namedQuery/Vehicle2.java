@@ -2,35 +2,27 @@ package ebook.jpql.join.namedQuery;
 
 import java.math.BigDecimal;
 
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import ebook.IdVehicle;
 
-/*Queries nomeadas, também conhecidas como named queries, é uma forma de organizar
- * as consultas JPQL que escrevemos em nossas aplicações.
+/* Para definir mais de uma named query em uma entidade, podemos agrupá-las 
+ * com a anotação @NamedQueries.
  * 
- * Além de organizar as queries, ganhamos em performance, pois elas são estáticas e
- * processadas apenas na inicialização da unidade de persistência.
- * 
- * Uma named query é definida com a anotação de @NamedQuery, que pode ser colocada na 
- * declaração da classes de qualquer entidade JPA. A anotação recebe o nome da query 
- * e a própria consulta JPQL.
- * 
- * Para facilitar e evitar conflitos, nomeamos a query com um prefixo "Veiculo",
- * dizendo que a consulta está relacionada a essa entidade.
- * 
- * Para usar uma named query, chamamos o método createNamedQuery de EntityManager na
- * classe NamedQuery.
  */
 
 //@Entity
 @Table(name = "veiculo")
-@NamedQuery(name = "Vehicle.comProprietarioPorValor",
+@NamedQueries({
+		@NamedQuery(name = "Vehicle.comProprietarioPorValor",
 			query = "select v from Veiculo v"
-			+ "inner join fetch v.proprietario where v.valor >:valor")
-public class Vehicle {
-	
+			+ "inner join fetch v.proprietario where v.valor >:valor"),
+		@NamedQuery(name = "Vehicle.porModelo",
+			query = "select v from Vehicle v where modelo like :model")
+})
+public class Vehicle2 {
 	
 	private IdVehicle code;
 	

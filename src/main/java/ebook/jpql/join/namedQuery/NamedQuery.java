@@ -8,10 +8,18 @@ import javax.persistence.TypedQuery;
 
 import ebook.JpaUtil;
 
-/* Para usar uma named query, chamamos o método createNamedQuery de EntityManager na
+/* 
+ * é interessante a utilização de Named Queries quando  você tem certeza que sua query não 
+ * mudará e ela é bastante executada dentro da aplicação.
+ * 
+ * Para usar uma named query, chamamos o método createNamedQuery de EntityManager na
  * classe NamedQuery.
  * 
  * namedQuery é uma consulta jpql estaticamente definida com parametros já definidos.
+ * São mais rápidas por serem parseadas para SQL e  cacheadas uma unica vez.
+ * 
+ * Named queries podem ser externalizádas para arquivos XML, assim evitar a poluição
+ * da sua classe java. 
  * 
  */
 public class NamedQuery {

@@ -10,7 +10,6 @@ import ebook.IdVehicle;
 
 /* Para definir mais de uma named query em uma entidade, podemos agrupá-las 
  * com a anotação @NamedQueries.
- * 
  */
 
 //@Entity

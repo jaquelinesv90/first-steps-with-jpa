@@ -15,6 +15,20 @@ import ebook.Vehicle;
  * 
  * Nomeamos os parâmetros com um prefixo : e vinculamos os valores para cada
  * parametro usando o método setParameter de Query.
+ * 
+ * Primeiramente, pegamos uma instância do tipo CriteriaBuilder do EntityManager, 
+ * através do método getCriteriaBuilder.Essa interface funciona como uma fábrica de vários
+ * objetos que podemos usar para definir uma consulta.
+ * 
+ * Usamos o método createQuery de CriteriaBuilder para instanciar um CriteriaQuery.A interface
+ * CriteriaQuery possui as clausulas da consulta.
+ * 
+ * Chamamos o método from de CriteriaQuery para obtermos um objeto do tipo Root.Depois,chamamos
+ * o método da cláusula select, informando como parametro o objeto do tipo Root, dizendo que queremos
+ * selecionar a entidade Veiculo.
+ * 
+ * Criamos uma TypedQuery através do método EntityManager.createQuery, e depois recuperamos o resultado
+ * da consulta pelo método getResultList.
  */
 public class VehicleSearching {
 

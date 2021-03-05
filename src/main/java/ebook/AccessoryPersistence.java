@@ -10,6 +10,9 @@ public class AccessoryPersistence {
 
 	public static void main(String[] args) {
 		
+		//O entityManager é responsável por gerenciar as entidades, através
+		//dele é possível gerenciar o ciclo de vida das entidades, operação de 
+		//sincronização.Quando
 		EntityManager manager = JpaUtil.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();

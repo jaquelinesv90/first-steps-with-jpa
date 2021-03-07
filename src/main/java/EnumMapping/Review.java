@@ -20,6 +20,8 @@ public class Review implements Serializable{
 	@Version
 	private int version;
 	
+	//@Enumerated(EnumType.STRING)
+	//@Convert(converter = RatingConverter.class)
 	@Enumerated
 	private Rating rating;
 	

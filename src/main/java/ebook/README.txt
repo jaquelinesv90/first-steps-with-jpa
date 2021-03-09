@@ -7,6 +7,10 @@ Gerenciando estados
 Objetos de entidade são instâncias de classes mapeadas usando JPA, que ficam na memória e representam registros
 do banco de dados.Essas instâncias possuem um ciclo de vida, que é gerenciado pelo JPA.
 
+EntityManager é um serviço responsável por gerenciar as entidades, através dele é possível gerenciar o ciclo
+de vida das entidades, operação de sincronização com a base de dados.
+ O EntityManager pode ser gerenciado de duas formas:Gerenciado pelo Container, Gerenciado pela Aplicação.
+
 Os estados do ciclo de vida das entidades são: transient(ou new), managed, detached e removed.
 
 As transições entre os estados são feitas através de métodos do EntityManager.

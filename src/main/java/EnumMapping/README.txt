@@ -10,3 +10,8 @@ The ordinal of an enum value is its position in the enum declaration.This value 
 to update your database when you remove an existing value or don't add new values to the end of the Enum declaration.
 
 You can define a custom mapping and avoid these issues with an AttributeConverter.
+
+exceptions:
+- @Id and @Version
+- Relationships
+- @Temporal and @Enumerated

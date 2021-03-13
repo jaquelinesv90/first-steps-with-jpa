@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import EnumMapping.attributeConverter.business.TripBean;
+import EnumMapping.attributeConverter.enums.Vehicle;
 import ebook.JpaUtil;
 
 public class Searching {
@@ -13,9 +15,9 @@ public class Searching {
 		
 		EntityManager em = JpaUtil.getEntityManager();
 		
-		TypedQuery<Trip> q = em.createQuery("SELECT t FROM Trip t WHERE t.vehicle = :v", Trip.class);
+		TypedQuery<TripBean> q = em.createQuery("SELECT t FROM Trip t WHERE t.vehicle = :v", TripBean.class);
 		q.setParameter("v", Vehicle.PLANE);
-		List<Trip> trips = q.getResultList();
+		List<TripBean> trips = q.getResultList();
 	}
 
 }

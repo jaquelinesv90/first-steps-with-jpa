@@ -1,7 +1,9 @@
-package EnumMapping.attributeConverter;
+package EnumMapping.attributeConverter.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+
+import EnumMapping.attributeConverter.enums.Vehicle;
 
 /*Um conversor de atributos nos permite implementar métodos para converter o
  * valor de um atributo de entidade em sua representação de banco de dados e 
@@ -27,6 +29,7 @@ public class VehicleConverter implements AttributeConverter<Vehicle, String>{
 		return vehicle.getShortName();
 	}
 
+	// the entity you want to convert
 	@Override
 	public Vehicle convertToEntityAttribute(String dbData) {
 		return Vehicle.fromShortName(dbData);

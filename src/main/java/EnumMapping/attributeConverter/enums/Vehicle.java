@@ -1,4 +1,4 @@
-package EnumMapping.attributeConverter;
+package EnumMapping.attributeConverter.enums;
 
 public enum Vehicle {
 	

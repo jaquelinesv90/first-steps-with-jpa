@@ -1,10 +1,12 @@
-package EnumMapping.attributeConverter;
+package EnumMapping.attributeConverter.business;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import EnumMapping.attributeConverter.enums.Vehicle;
+
 @Entity
-public class Trip {
+public class TripBean {
 	
 	@Id
 	private Long id;

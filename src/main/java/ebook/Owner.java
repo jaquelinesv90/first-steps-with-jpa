@@ -25,14 +25,15 @@ public class Owner {
 	private String name_owner;
 	
 	/* @ElementCollection : cria relacionamentos da nossa entidade com
-	 * outros tipos que não são entidades. tipos simples como String 
+	 * outros tipos que não são entidades. tipos simples como String. 
 	 * 
-	 * @CollectionTable :
+	 * @CollectionTable : Especifica a tabela que é usada para o mapeamento de coleções 
+	 * de tipos básicos ou incorporáveis.Aplicado ao campo ou propriedade com valor de coleção.
 	 * 
-	 * @AttributeOverrides : 
+	 * @AttributeOverrides : usado para substituir mapeamentos de várias propriedades ou campos.
 	 * 
-	 * 
-	 * @AttributeOverride : 
+	 * @AttributeOverride : usado para substituir o mapeamento de uma propriedade ou campo básico
+	 * (explicito ou padrão) ou prorpiedade ou campo de id.
 	 * 
 	 */
 	

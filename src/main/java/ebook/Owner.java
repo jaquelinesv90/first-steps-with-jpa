@@ -1,5 +1,6 @@
 package ebook;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -31,6 +32,8 @@ public class Owner {
 	 * de tipos básicos ou incorporáveis.Aplicado ao campo ou propriedade com valor de coleção.
 	 * 
 	 * @AttributeOverrides : usado para substituir mapeamentos de várias propriedades ou campos.
+	 * Neste caso foi usada para substituir o mapeamento da propriedade numero, alterando o nome
+	 * da coluna para telefone_numero.
 	 * 
 	 * @AttributeOverride : usado para substituir o mapeamento de uma propriedade ou campo básico
 	 * (explicito ou padrão) ou prorpiedade ou campo de id.
@@ -45,7 +48,7 @@ public class Owner {
 				column = @Column(name = "phone_number", length = 20, 
 				nullable = false))
 	})
-	private List<String> telephone_owner;
+	private List<String> telephone_owner = new ArrayList<>();
 	
 	@Column
 	private String email;

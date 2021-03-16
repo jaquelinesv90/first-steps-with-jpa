@@ -8,7 +8,9 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -99,9 +101,9 @@ public class Vehicle{
 	 a partir de um veículo, mas não conseguimos obter o veículo a apartir 
 	 de um proprietário - para torna-lá bidirecional é necessário criar 
 	 o atributo veículo na classe - proprietario.
-	 
+	 */
 	@OneToOne(optional = false)
-	@JoinColumn(name ="cod_owner")*/
+	@JoinColumn(name ="cod_owner")
 	private Owner owner;
 	
 	public Vehicle() {}

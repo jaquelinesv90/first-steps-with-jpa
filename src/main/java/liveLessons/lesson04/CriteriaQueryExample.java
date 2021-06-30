@@ -19,7 +19,27 @@ public class CriteriaQueryExample {
 	}
 	
 	public static void choosingReturn(EntityManager entityManager) {
+		/*
+		 * Exemplo utilizando um  dominio
+		 *
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		
+		CriteriaQuery<Control> criteriaQuery = criteriaBuilder.createQuery(Control.class);
+		// o Root é equivalente ao alias - select u from User u
+		Root<User> root = criteriaQuery.from(User.class);
+		
+		//aqui eu digo, pegue a propriedade dominio(control) do usuario
+		criteriaQuery.multiselect(root.get("control"));
+		
+		TypedQuery<Control> typedQuery = entityManager.createQuery(criteriaQuery);
+		List<Control> list = typedQuery.getResultList();
+		//list.forEach(u -> System.out.println(u.getId() + ","+u.getName()));
+		for(Control c : list) {
+			System.out.println(c.getId()+ "," + c.getName());
+		}
+		*/
+		
+		//Exemplo utilizando uma propriedade
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		
 		CriteriaQuery<Control> criteriaQuery = criteriaBuilder.createQuery(Control.class);

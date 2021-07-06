@@ -14,8 +14,84 @@ import liveLessons.lesson04.model.User;
 
 public class CriteriaQueryExample {
 	
+	//CriteriaQuery é a instancia que contém as clausulas
+	//CriteriaBuilder nos ajuda a construir nossa query
 	public static void main(String[] args) {
 		
+	}
+	
+	public static void paginandoResultados(EntityManager entityManager) {
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		
+		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+		// o Root é equivalente ao alias - select u from User u
+		Root<User> root = criteriaQuery.from(User.class);
+		
+		criteriaQuery.select(root);
+		
+		
+		TypedQuery<User> typedQuery = entityManager.createQuery(criteriaQuery)
+				.setFirstResult(0) // PRIMEIRO = (PAGINA - 1) * QTDE_PA
+				.setMaxResults(2);
+		
+		List<User> list = typedQuery.getResultList();
+		//list.forEach(u -> System.out.println(u.getId() + ","+u.getName()));
+		for(User u : list) {
+			System.out.println(u.getId()+ "," + u.getName());
+		}
+	}
+	
+	// A instancia do criteriaBuilder nos ajuda a passar parametros para 
+	// os métodos que são referentes as clausulas do sql como por ex: order by
+	public static void orderingResults(EntityManager entityManager) {
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		
+		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+		// o Root é equivalente ao alias - select u from User u
+		Root<User> root = criteriaQuery.from(User.class);
+		
+		//clausulas como por exemplo order by, a gente utiliza apartir da instancia
+		// do criteria query 
+		// nome é a propriedade pela qual será ordenada a consulta
+		criteriaQuery.select(root);
+		criteriaQuery.orderBy(criteriaBuilder.asc(root.get("nome")));
+		
+		TypedQuery<User> typedQuery = entityManager.createQuery(criteriaQuery);
+		List<User> list = typedQuery.getResultList();
+		//list.forEach(u -> System.out.println(u.getId() + ","+u.getName()));
+	}
+	
+	
+	public static void passParameter(EntityManager entityManager) {
+		//passagem de parametros por -  id/
+		
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		
+		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+		// o Root é equivalente ao alias - select u from User u
+		Root<User> root = criteriaQuery.from(User.class);
+		
+		criteriaQuery.select(root);
+		//vai trazer o usuario de identificador 1
+		criteriaQuery.where(criteriaBuilder.equal(root.get("id"), 1));
+		
+		TypedQuery<User> typedQuery = entityManager.createQuery(criteriaQuery);
+		User user = typedQuery.getSingleResult();
+		//list.forEach(u -> System.out.println(u.getId() + "," + u.getNome()));	
+		
+		///////////passagem de parametros por -  login
+		CriteriaBuilder criteriaBuilder2 = entityManager.getCriteriaBuilder();
+		
+		CriteriaQuery<User> criteriaQuery2 = criteriaBuilder2.createQuery(User.class);
+		// o Root é equivalente ao alias - select u from User u
+		Root<User> root2 = criteriaQuery.from(User.class);
+		
+		criteriaQuery2.select(root2);
+		criteriaQuery2.where(criteriaBuilder.equal(root.get("login"), "ria"));
+		
+		TypedQuery<User> typedQuery2 = entityManager.createQuery(criteriaQuery2);
+		User user2 = typedQuery2.getSingleResult();
+		//list.forEach(u -> System.out.println(u.getId() + "," + u.getNome()));	
 	}
 	
 	public static void makingProjections(EntityManager entityManager) {
